@@ -1,7 +1,17 @@
 <!-- HA DE SER UN PHP PER QUE COMPROVI QUE LA SESSIO ESTA INICIALITZADA-->
 <?php
-include "./login/assets_login/php/connexioBD.php";
+#include "./login/assets_login/php/connexioBD.php";
+require "./login/assets_login/php/login.php";
 //sesion_start isset
+if(!isset($correu) && !password_verify($password))
+{
+	echo "Correu no registrat o contrassenya no correcte";
+	header("../");
+}
+else
+{
+	echo "Succes";
+}
 
 
 /*if(!isset($_SESSION['usuari']))
