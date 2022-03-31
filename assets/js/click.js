@@ -1,9 +1,9 @@
 
 function enviarLogin() 
 {
-  location.href="/user/login";
+  location.href="/login";
 }
 function enviarRegister()
 {
-    location.href="/user/register";
+    location.href="/register";
 }
