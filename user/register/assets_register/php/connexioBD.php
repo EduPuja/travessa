@@ -5,7 +5,7 @@ $database = "btravessa";
 
 // usuari de exemple
 $username = "root";
-$password ="Dam2022!"; 
+$password ="Dam2020!"; 
 
 $connexio = mysqli_connect($serverName,$username,$password,$database);
 
