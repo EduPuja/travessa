@@ -81,6 +81,6 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
        
 
     }
-
+//no se si aixo es problema
 mysqli_close($connexio);
 ?>
