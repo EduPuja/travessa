@@ -15,7 +15,7 @@ if($rows >= 0)
   {
     echo"
     <script> 
-      location.href ='../../../index.php'
+      location.href ='../../../user/index.php'
     </script>";
   }
   else{
