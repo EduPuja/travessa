@@ -4,7 +4,7 @@ $serverName = "localhost";
 $database = "btravessa";
 
 // usuari de exemple
-$username = "admin";
+$username = "root";
 $password ="Dam2022!"; 
 
 $connexio = mysqli_connect($serverName,$username,$password,$database);
