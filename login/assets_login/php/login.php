@@ -31,7 +31,7 @@ if($rows >= 0)
     {
       echo"
       <script>
-        location.href ='../../../user/index.php'
+        location.href ='../../../user/menuUser.php'
       </script>";
       //redireccio a pagina user
     }
