@@ -1,5 +1,5 @@
 <?php
-include "connexioBD.php";
+include "../../../assets/php/connexioBD.php";
 
 $correu = $_POST["email"];
 $password = $_POST["contrassenya"];

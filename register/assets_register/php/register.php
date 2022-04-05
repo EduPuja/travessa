@@ -7,7 +7,7 @@
 </html>
 
 <?php
-include "connexioBD.php";
+include "../../../assets/php/connexioBD.php";
 
 $nom = $_POST["nom"];
 $cognom = $_POST["cognom"];
