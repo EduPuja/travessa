@@ -7,3 +7,15 @@ function enviarRegister()
 {
     location.href="/register";
 }
+function enviarHome()
+{
+  location.href ="/home.html";
+}
+function enviarMySql()
+{
+  location.href ="/mysql/home.html";   //TE ENVIA AL INDEX.HMTL
+}
+function enviarPostgrest()
+{
+  location.href ="/postgres/home.html";   //TE ENVIA AL INDEX.HMTL
+}
