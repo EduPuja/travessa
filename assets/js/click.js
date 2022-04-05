@@ -13,9 +13,9 @@ function enviarHome()
 }
 function enviarMySql()
 {
-  location.href ="/mysql/home.html";   //TE ENVIA AL INDEX.HMTL
+  location.href ="/mysql/home.html";   //TE ENVIA AL HOME.HMTL
 }
 function enviarPostgrest()
 {
-  location.href ="/postgres/home.html";   //TE ENVIA AL INDEX.HMTL
+  location.href ="/postgres/home.html";   //TE ENVIA AL HOME.HMTL
 }
