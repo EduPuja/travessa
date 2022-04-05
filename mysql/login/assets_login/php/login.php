@@ -15,10 +15,11 @@ if($rows >= 0)
   {
     if(password_verify($password, $rows["contrassenya"]))
     {
-      echo"
+      header("Location: ../../../user/menu.php");
+      /*echo"
       <script>
-        location.href ='../../../user/menu.php'
-      </script>";
+        location.href ='../../user/menu.php'
+      </script>";*/
       //redireccio a pagina admin
     }
     else{
@@ -29,10 +30,11 @@ if($rows >= 0)
   {
     if(password_verify($password, $rows["contrassenya"]))
     {
-      echo"
+      header("Location: ../../../user/menuUser.php");
+      /*echo"
       <script>
-        location.href ='../../../user/menuUser.php'
-      </script>";
+        location.href ='../../user/menuUser.php'
+      </script>";*/
       //redireccio a pagina user
     }
     else{

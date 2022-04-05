@@ -34,28 +34,7 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
 
         if(mysqli_query($connexio,$sql))
         {
-            echo"
-            <script> 
-                 swal(
-                     {
-                         title:'Register Oka',
-                         text: 'Te has registrat correctament',
-                         icon: 'success',
-                     }
-                 );
-                 location.href ='../../../login'
-               
-            </script>";
-
-          //  header("Location: ../../../../..");
-            /*echo '<script> 
-            alert("Usuari Creat correctament"); 
-            location.href = "../../../../../";
-            </script>';*/
-        // setInterval(location.href ='../../../../../', 3000);
-
-            //header("Location: ../../../../..");
-               
+            header("Location: ../../login/index.html");
         }
         else{
          
@@ -64,22 +43,7 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
     }
 
     else{
-        /*echo '<script> 
-        alert("El usuari ja esta creat"); 
-        location.href = "../../../login";
-        </script>';*/
-
-        echo"
-            <script> 
-            swal('El usuari ja esta creat','$nom','error');
-
-            </script>
-            <script>
-             location.href = '../../../../../';
-            </script>
-            ";
-       
-
+        header("Location: ../../../home.html");
     }
 //no se si aixo es problema
 mysqli_close($connexio);
