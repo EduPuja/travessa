@@ -1,4 +1,5 @@
-function enviarHomeMySql()
+function avisar()
 {
-  alert("hola");
+  alert("estic diguent hola");
+  location.href = "mysql/home.html";
 }
