@@ -15,7 +15,7 @@ if($rows >= 0)
   {
     if(password_verify($password, $rows["contrassenya"]))
     {
-      header("Location: ../../../user/menu.php");
+      header("Location: ../../user/menu.php");
       /*echo"
       <script>
         location.href ='../../user/menu.php'
@@ -30,7 +30,7 @@ if($rows >= 0)
   {
     if(password_verify($password, $rows["contrassenya"]))
     {
-      header("Location: ../../../user/menuUser.php");
+      header("Location: ../../user/assets_user/menuUser.php");
       /*echo"
       <script>
         location.href ='../../user/menuUser.php'

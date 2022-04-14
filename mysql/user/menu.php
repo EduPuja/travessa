@@ -25,7 +25,8 @@
                   <div class="mb-md-5 mt-md-4 pb-5">
       
                     <h2 class="fw-bold mb-2 text-uppercase">OPCIO MENU</h2>
-                    <p class="text-white-50 mb-5">A quina interface vols anar Menu admin  o el otro </p>
+                    <p class="text-white-50 mb-5">A quina interface vols anar Menu admin  o Menu usuari</p>
+                    
 
                 </div>
               </div>
