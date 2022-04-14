@@ -7,7 +7,7 @@
 </html>
 
 <?php
-include "../../../assets/php/connexioBD.php";
+include "/assets/php/connexioBD.php";
 
 $nom = $_POST["nom"];
 $cognom = $_POST["cognom"];
@@ -30,7 +30,7 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
 
     if($rows == 0)
     {
-        $sql = "INSERT INTO usuari (email,nom,cognom,adreca,contrassenya) VALUES('$correu','$nom','$cognom','$adreca','$hash')";
+        $sql = "INSERT INTO usuari (isAdmin,email,nom,cognom,adreca,contrassenya) VALUES(0,'$correu','$nom','$cognom','$adreca','$hash')";
 
         if(mysqli_query($connexio,$sql))
         {
