@@ -63,11 +63,11 @@ else
             
               Swal.fire({
                 icon: "success",
-                title: "OKA...",
-                text: "Hola ADMIN",
+                title: "OKA",
+                text: "Hola ADMINITRADOR" ,
                 confirmButtonText:
                 "<i class=fa fa-thumbs-up>Nice</i> " +
-                "<a href=../../../login>Tornar al login!</a> ",
+                "<a href=../../../user/menu.php>ANAR MENU!</a> ",
               })
     
             
@@ -108,8 +108,19 @@ else
         
         if(password_verify($password, $rows["contrassenya"]))
         {
-          echo "HOLA USUARI";
-          header("Location: ../../user/assets_user/menuUser.php");
+          echo '<script>
+            
+              Swal.fire({
+                icon: "success",
+                title: "OKA",
+                text: "Hola usuari" ,
+                confirmButtonText:
+                "<i class=fa fa-thumbs-up>Nice</i> " +
+                "<a href=../../../user/menuUser.php>ANAR MENU!</a> ",
+              })
+    
+            
+              </script>';
         
         }
         else
