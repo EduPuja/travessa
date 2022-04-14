@@ -15,11 +15,8 @@ if($rows >= 0)
   {
     if(password_verify($password, $rows["contrassenya"]))
     {
-      header("Location: ../../user/menu.php");
-      /*echo"
-      <script>
-        location.href ='../../user/menu.php'
-      </script>";*/
+     // header("Location: /mysql/user/menu.php");
+      echo"location.href ='../../user/menu.php'";
       //redireccio a pagina admin
     }
     else{
