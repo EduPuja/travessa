@@ -3,15 +3,13 @@
 #REQUIERE EL CONEXIO PHP   
 require("../../../../assets/php/connexioBD.php");
 
-
+// VARIALBES POST DEL HTML
 $nom = $_POST["nom"];
 $cognom = $_POST["cognom"];
 $adreca = $_POST["adreca"];
 $correu = $_POST["email"];
-//! se ha de encriptar
-// password_verify
 $password = $_POST["contrassenya"];
-
+// ENCRIPTACIO
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
     //echo "Password correct";
@@ -25,17 +23,22 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
 
     if($rows <=0)
     {
-        echo "hola";
-       $insert = "INSERT INTO usuari VALUES(0,'$correu','$nom','$cognom','$hash','$adreca',NULL);";
+        #echo "hola";
+        $insert = "INSERT INTO usuari VALUES(0,'$correu','$nom','$cognom','$hash','$adreca',NULL);";
         $exito = mysqli_query($connexio,$insert);
-       if($exito)
-       {
-           echo "INSERTADA";
-       }
-       else
-       {
-           echo "NO HAS INSERTAT";
-       }
+        if($exito)
+        {
+            echo "INSERTADA";
+
+
+                // REDIRECIO CAP A LOGIN
+                header("Location: ../../../login");
+        }
+        /*else
+        {
+            echo "NO HAS INSERTAT";
+            //REDIRECIO 
+        }*/
     }
 
     else
