@@ -9,23 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="../../../../assets/css/main.css" rel="stylesheet" type="text/css">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>LOGIN php</title>
+  <title>Login</title>
 </head>
-<body>
-    <!--<script>
-
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Contrassenya Mala!',
-      confirmButtonText:
-      '<i class="fa fa-thumbs-up"></i> ' +
-      '<a href="../../../login">Tornar al login!</a> ',
-    });
-
-
-    </script>-->
-  </body>
+<!--AQUI POT HABERI UN BODY -->
 </html>
 <?php
 
