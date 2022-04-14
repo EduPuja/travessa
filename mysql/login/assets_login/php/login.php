@@ -13,6 +13,7 @@ if($rows >= 0)
 {
   if($row["isAdmin"] == 1)
   {
+    echo "hola";
     if(password_verify($password, $rows["contrassenya"]))
     {
      // header("Location: /mysql/user/menu.php");
