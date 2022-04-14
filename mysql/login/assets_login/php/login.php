@@ -61,7 +61,7 @@ if($rows >= 0)
       // poner alert
       #echo "La contrassenya no es correcte";
       #echo "Contrass"
-      echo
+   
     
     }
     # window.location.href="../../../login"
