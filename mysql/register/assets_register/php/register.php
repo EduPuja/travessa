@@ -32,11 +32,18 @@ $cognom = $_POST["cognom"];
 $adreca = $_POST["adreca"];
 $correu = $_POST["email"];
 $password = $_POST["contrassenya"];
-// ENCRIPTACIO
-$hash = password_hash($password, PASSWORD_DEFAULT);
+
+if (!isset($correu ,$password,$nom,$adreca))
+{
+    echo '<script language="javascript">alert("No pots entrar aqui");window.location.href="../../../register"</script>';
+}
+else
+{
+        // ENCRIPTACIO
+    $hash = password_hash($password, PASSWORD_DEFAULT);
 
     //echo "Password correct";
-    
+
 
     //primer comprovar si existeix un correu 
     $consulta ="SELECT email FROM usuari WHERE email = '$correu'";
@@ -51,7 +58,7 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
         $exito = mysqli_query($connexio,$insert);
         if($exito)
         {
-             #echo "INSERTADA";
+            #echo "INSERTADA";
 
 
                 // REDIRECIO CAP A LOGIN
@@ -59,18 +66,18 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
 
             echo '<script>
             
-              Swal.fire({
+            Swal.fire({
                 icon: "success",
                 title: "OKA",
                 text: "Registre Correcte" ,
                 confirmButtonText:
                 "<i class=fa fa-thumbs-up>GO</i> " +
                 "<a href=../../../login>Log in</a> ",
-              })
-    
+            })
+
             
-              </script>';
-          
+            </script>';
+        
         }
         /*else
         {
@@ -84,6 +91,8 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
         header("Location: ../../../home.html");
     }
 
-mysqli_close($connexio);
+    mysqli_close($connexio);
+}
+
 
 ?>
