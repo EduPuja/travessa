@@ -18,7 +18,7 @@ if(!$connexio)
 }
 else
 {
-    //echo "Connexio succes";
+    #echo "Connexio succes";
 }
 
 //mysqli_close($connexio);
