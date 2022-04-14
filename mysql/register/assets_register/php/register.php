@@ -30,6 +30,9 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
 
     if($rows == 0)
     {
+
+        // INSERT INTO `usuari`(`isAdmin`, `email`, `nom`, `cognom`, `contrassenya`, `adreca`, `cartera`) VALUES (0,'admin@gmail.com','Administrador', 'Admin','CB33E2F359EA9E08A3BC65C663BA77E8FD09C945AD52BF6F9A5DD0E6BA7CF1C3','ER PUTO AMO',NULL)
+
         $sql = "INSERT INTO usuari (isAdmin,email,nom,cognom,adreca,contrassenya) VALUES(0,'$correu','$nom','$cognom','$adreca','$hash')";
 
         if(mysqli_query($connexio,$sql))
