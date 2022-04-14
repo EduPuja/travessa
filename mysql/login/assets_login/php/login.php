@@ -4,13 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="sweetalert2.all.min.js"></script>
-
+  <link rel="icon" type="image/png" href="../../assets/img/icons/footway.ico"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="../../assets/css/main.css" rel="stylesheet" type="text/css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>LOGIN php</title>
 </head>
+<body>
+    <script>
 
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Contrassenya Mala!',
+      confirmButtonText:
+      '<i class="fa fa-thumbs-up"></i> ' +
+      '<a href="../../../login">Tornar al login!</a> ',
+    });
+
+
+    </script>
+  </body>
 </html>
 <?php
+
+
 #include "../../../assets/php/connexioBD.php";
 require("../../../../assets/php/connexioBD.php");
 
@@ -42,6 +61,8 @@ if($rows >= 0)
       // poner alert
       #echo "La contrassenya no es correcte";
       #echo "Contrass"
+      echo
+    
     }
     # window.location.href="../../../login"
   }
