@@ -25,7 +25,7 @@
 
 #include "../../../assets/php/connexioBD.php";
 require("../../../../assets/php/connexioBD.php");
-session_start();
+
 
 
 $correu = $_POST["email"];
@@ -38,7 +38,7 @@ if (!isset($correu ,$password))
 {
   echo '<script language="javascript">alert("No pots entrar aqui");window.location.href="../../../login"</script>';
 
-  session_abort();
+  
 }
 else
 {
@@ -61,7 +61,6 @@ else
           #echo session_status();
           
          
-            session_name('admin');
           echo '<script>
             
               Swal.fire({
@@ -99,7 +98,7 @@ else
               
             // header("Location: ../../../login");
                     
-            session_abort();
+           
             
         
         }
@@ -112,7 +111,7 @@ else
         if(password_verify($password, $rows["contrassenya"]))
         {
          
-         session_name('usuari');
+       
           echo '<script>
             
               Swal.fire({
@@ -145,7 +144,7 @@ else
         
           </script>';
 
-          session_abort();
+        
         }
         
       }
@@ -168,7 +167,7 @@ else
     
       </script>';
 
-      session_abort();
+     
     }
 }
 ?>

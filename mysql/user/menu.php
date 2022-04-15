@@ -1,7 +1,5 @@
 <?php
-require("../../assets/php/connexioBD.php");
-session_start();
-  
+
 
 ?>
 
