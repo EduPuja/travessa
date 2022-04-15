@@ -25,19 +25,24 @@
 
 #include "../../../assets/php/connexioBD.php";
 require("../../../../assets/php/connexioBD.php");
+session_start();
 
 
 $correu = $_POST["email"];
 $password = $_POST["contrassenya"];
 
+
+
+
 if (!isset($correu ,$password))
 {
   echo '<script language="javascript">alert("No pots entrar aqui");window.location.href="../../../login"</script>';
 
+  session_abort();
 }
 else
 {
-    $consulta = "SELECT isAdmin,email,contrassenya from usuari WHERE email = '$correu'";
+    $consulta = "SELECT isAdmin,email,contrassenya,nom from usuari WHERE email = '$correu'";
 
     $query = mysqli_query($connexio, $consulta);
     // ens dona el un array 
@@ -48,10 +53,15 @@ else
     {
       if($rows['isAdmin'] == 1)
       {
-        
+       
         
         if(password_verify($password, $rows["contrassenya"]))
         {
+         
+          #echo session_status();
+          
+         
+            session_name('admin');
           echo '<script>
             
               Swal.fire({
@@ -66,7 +76,7 @@ else
             
               </script>';
           
-
+              
 
 
         }
@@ -86,11 +96,11 @@ else
     
             
               </script>';
-    
+              
             // header("Location: ../../../login");
                     
+            session_abort();
             
-    
         
         }
         # window.location.href="../../../login"
@@ -101,6 +111,8 @@ else
         
         if(password_verify($password, $rows["contrassenya"]))
         {
+         
+         session_name('usuari');
           echo '<script>
             
               Swal.fire({
@@ -132,6 +144,8 @@ else
 
         
           </script>';
+
+          session_abort();
         }
         
       }
@@ -153,5 +167,8 @@ else
 
     
       </script>';
+
+      session_abort();
     }
 }
+?>
