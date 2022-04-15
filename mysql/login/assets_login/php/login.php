@@ -1,15 +1,11 @@
 <?php
-session_start();
+session_start();      // SESION START PER DESPRES PODER COMPROVAR SI LA SESSIO ES D'UN ADMIN O DE UN USUARI
 require("../../../../assets/php/connexioBD.php");
 
 
 
 $correu = $_POST["email"];
 $password = $_POST["contrassenya"];
-
-
-
-
 
 
 if (!isset($correu ,$password))
@@ -36,61 +32,22 @@ else
         
         if(password_verify($password, $rows["contrassenya"]))
         {
-         if(isset($_SESSION['usuari']))
-         {
-           echo "hola admin";
-            header("Location: ../../../user/menu.php");
-         }
-          
-          
-         // si ets admin
-           
-          /*echo '<script>
-            
-              Swal.fire({
-                icon: "success",
-                title: "OKA",
-                text: "Hola ADMINITRADOR" ,
-                confirmButtonText:
-                "<i class=fa fa-thumbs-up>Nice</i> " +
-                "<a href=../../../user/menu.php>ANAR MENU!</a> ",
-              })
-    
-            
-              </script>';*/
-
-             
-          
+            if(isset($_SESSION['usuari']))
+            {
+              # echo "hola admin";
+                header("Location: ../../../admin/");
+            }
               
-
 
         }
         else
         {
-
           
-          #PASSWORD ADMIN MALA
-          /*echo '<script>
-            
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Contrassenya Mala!",
-                confirmButtonText:
-                "<i class=fa fa-thumbs-down>Tornar al </i> " +
-                "<a href=../../../login>LOGIN</a> ",
-              })
-    
-            
-              </script>';*/
+          // password admin incorrecte
               
              header("Location: ../../../login");
-                    
-          
-            
-        
         }
-        # window.location.href="../../../login"
+     
       }
       else
       {
@@ -99,31 +56,17 @@ else
         if(password_verify($password, $rows["contrassenya"]))
         {
          
-         // USUARI
-         if(isset($_SESSION['usuari']))
-         {
-          echo "hola usuari";
-         }
-          /*echo '<script>
-            
-              Swal.fire({
-                icon: "success",
-                title: "OKA",
-                text: "Hola usuari" ,
-                confirmButtonText:
-                "<i class=fa fa-thumbs-up>Nice</i> " +
-                "<a href=../../../user/menuUser.php>ANAR MENU!</a> ",
-              })
-    
-            
-              </script>';*/
-
-             // header("Location ../../../user/menuUser.php");
-        
+            // USUARI
+            if(isset($_SESSION['usuari']))
+            {
+              #  echo "hola usuari";
+              header("Location: ../../../user/");
+            }
+          
         }
         else
         {
-          
+          // fora de aqui si no esta be la contrassenya
           header("Location: ../../../login");
           
         }
@@ -134,7 +77,6 @@ else
     else
     {
      
-    
       header("Location: ../../../login");
    
     }
