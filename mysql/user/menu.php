@@ -2,7 +2,9 @@
 session_start();
 if(!isset($_SESSION['usuari']))
 {
-  echo "fora de aqui";
+  echo '<script> 
+  alert("No ets admin! FORA DE AQUI NO ET VOLEM  ");
+  window.location.href="../login/";  </script>' ; 
 }
 
 
