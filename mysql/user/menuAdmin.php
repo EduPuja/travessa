@@ -25,11 +25,6 @@ if(!isset($_SESSION['usuari']))
 </head>
     <body class="vh-300 gradient-custom">
         <!--Aqui se entra nomes si ets admin , sino t'envas directament al index.php-->
-       
-        
-
-        
-       
         <br>
         <br>
         <br>
@@ -44,14 +39,12 @@ if(!isset($_SESSION['usuari']))
                     <h3 class="fw mb-2 text-uppercase">OPCIO MENU</h3>
                     <p class="text-white-50 mb-5">A quina interface vols anar Menu admin  o Menu usuari</p>
                     <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'menuAdmin.php'">GESTIO PARTITS</button><br><br>
-                    <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'menuUser.php'">INSERTAR DADES</button><br><br>
+                    <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'insetarDades'">INSERTAR DADES</button><br><br>
                     <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'menuUser.php'">VISUALITZAR TAULES</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-    
-        
     </body>
 </html>
