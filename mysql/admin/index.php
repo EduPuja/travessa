@@ -38,10 +38,10 @@ if(!isset($_SESSION['usuari']))
                                 <h1  class="fw-bold mb-2 text-uppercase"> BENVINGUT <?php echo $_SESSION['usuari']; ?> </h1>
                                 <h3 class="fw mb-2 text-uppercase">MENU ADMINISTRADOR</h3>
                                 <p class="text-white-50 mb-5">Escull l'opcio que vulgis.</p>
-                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'menuAdmin.php'">GESTIO PARTITS</button><br><br>
-                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'insetarDades'">INSERTAR DADES</button><br><br>
-                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'menuUser.php'">VISUALITZAR TAULES</button><br><br><br>
-                                <button type="button"  class="btn btn-outline-warning" onclick="  location.href = 'menuUser.php'">MENU USUARI</button>
+                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = '#'">GESTIO PARTITS</button><br><br>
+                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = '#'">INSERTAR DADES</button><br><br>
+                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = '#'">VISUALITZAR TAULES</button><br><br><br>
+                                <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../user/'">MENU USUARI</button>
                             </div>
                         </div>
                     </div>

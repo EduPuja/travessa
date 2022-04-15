@@ -9,14 +9,7 @@ if(!isset($_SESSION['usuari']))
 
   window.location.href="../login/";  </script>' ; 
 
-  /*Swal.fire({
-	icon: "error",
-	title: "Oops...",
-	text: "Contrassenya Mala!",
-	confirmButtonText:
-	"<i class=fa fa-thumbs-down>Tornar al </i> " +
-	"<a href=../../../login>LOGIN</a> ",
-  })*/
+ 
 }
 ?>
 <html lang="es">

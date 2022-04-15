@@ -46,6 +46,7 @@ else
           // password admin incorrecte
               
              header("Location: ../../../login");
+             session_destroy();
         }
      
       }
@@ -68,6 +69,7 @@ else
         {
           // fora de aqui si no esta be la contrassenya
           header("Location: ../../../login");
+          session_destroy();
           
         }
         
@@ -78,6 +80,7 @@ else
     {
      
       header("Location: ../../../login");
+      session_destroy();
    
     }
 }
