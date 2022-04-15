@@ -1,27 +1,23 @@
 <!-- HA DE SER UN PHP PER QUE COMPROVI QUE LA SESSIO ESTA INICIALITZADA-->
 <?php
-#include "./login/assets_login/php/connexioBD.php";
-//require"../login/assets_login/php/login.php";
-//sesion_start isset
-//if(!isset($correu) && !password_verify($password))
-//{
-//	echo "Correu no registrat o contrassenya no correcte";
-//	header("../");
-//}
-//else
-//{
-//	echo "Succes";
-//}
-
-
-/*if(!isset($_SESSION['usuari']))
+session_start();
+if(!isset($_SESSION['usuari']))
 {
-  echo '
-  <script> 
-  alert("No estas logejat ");
+  echo '<script> 
+  alert("Necessites registrarte abans de poder entrar ");
   
-  window.location.href="../../login.html";  </script>' ;   
-}*/
+
+  window.location.href="../login/";  </script>' ; 
+
+  /*Swal.fire({
+	icon: "error",
+	title: "Oops...",
+	text: "Contrassenya Mala!",
+	confirmButtonText:
+	"<i class=fa fa-thumbs-down>Tornar al </i> " +
+	"<a href=../../../login>LOGIN</a> ",
+  })*/
+}
 ?>
 <html lang="es">
 <head>
@@ -30,9 +26,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="icon" type="image/png" href="../assets/img/icons/footway.ico">
+  <link rel="icon" type="image/png" href="../../assets/img/icons/footway.ico">
   <!--EL STYLES LO HE PUESTO AQUI  -->
-  <link href="./assets_user/css/user.css" type="text/css" rel="stylesheet" />
+  <link href="../assets_user/css/user.css" type="text/css" rel="stylesheet" />
   
 
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
@@ -41,15 +37,16 @@
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<div class="container-fluid">
 				<form class="container-fluid justify-content-start">
-					<a class="navbar-brand" href="#">
-						<img src="../assets/img/icons/footway.ico" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+					<a class="navbar-brand" href="menuUser.php">
+						<img src="../../assets/img/icons/footway.ico" alt="LogoFootway" style="width:40px;" class="rounded-pill"> 
 						FootWay
 					</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-					</button>
-					<button class="btn btn-outline-success me-2 active" type="button">Perfil</button>
-					<button class="btn btn-sm btn-outline-secondary me-2 active" type="button">Les Meves Apostes</button>
-					<button class="btn btn-sm btn-outline-secondary me-2 active" type="button">Millors Apostes</button>
+				
+					
+					<button class=" text-end btn btn-outline-success me-2 active" type="button">Perfil</button>
+					<button class="text-end btn btn-sm btn-outline-secondary me-2 active" type="button">Les Meves Apostes</button>
+					<button class="text-end btn btn-sm btn-outline-secondary me-2 active" type="button">Millors Apostes</button>
+				
 				</form>
 			</div>
 		</nav>
