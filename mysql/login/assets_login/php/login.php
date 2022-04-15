@@ -61,6 +61,7 @@ else
           #echo session_status();
           
          
+           
           echo '<script>
             
               Swal.fire({
@@ -98,7 +99,7 @@ else
               
             // header("Location: ../../../login");
                     
-           
+          
             
         
         }
@@ -111,7 +112,7 @@ else
         if(password_verify($password, $rows["contrassenya"]))
         {
          
-       
+         
           echo '<script>
             
               Swal.fire({
@@ -144,7 +145,7 @@ else
         
           </script>';
 
-        
+          
         }
         
       }
@@ -167,7 +168,7 @@ else
     
       </script>';
 
-     
+   
     }
 }
 ?>

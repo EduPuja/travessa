@@ -1,5 +1,7 @@
 <?php
+session_start();
 
+$_SESSION['user'] = $correu;
 
 ?>
 
@@ -19,7 +21,7 @@
     <body class="vh-300 gradient-custom">
         <!--Aqui se entra nomes si ets admin , sino t'envas directament al index.php-->
        
-        <h1 class="text-end"> BENVINGUT <?= $user['nom'] ?> </h1>
+        <h1 class="text-end"> BENVINGUT <?php echo $_SESSION['user']; ?> </h1>
 
         
        
