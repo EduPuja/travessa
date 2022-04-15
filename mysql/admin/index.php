@@ -24,7 +24,7 @@ if(!isset($_SESSION['usuari']))
     
 </head>
     <body class="vh-300 gradient-custom">
-        <!--Aqui se entra nomes si ets admin , sino t'envas directament al index.php-->
+        <!--Comentario de index admin-->
         <br>
         <br>
         <br>
