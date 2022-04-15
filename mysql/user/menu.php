@@ -33,8 +33,8 @@ if(!isset($_SESSION['usuari']))
         <br>
         <br>
         <br>
-        <div class="container py-4 h-200">
-          <div class="row d-flex justify-content-center align-items-center h-300">
+        <div class="container py-4 h-400">
+          <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
               <div class="card bg-dark text-white" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center">
@@ -43,7 +43,11 @@ if(!isset($_SESSION['usuari']))
                   <h1  class="fw-bold mb-2 text-uppercase"> BENVINGUT <?php echo $_SESSION['usuari']; ?> </h1>
                     <h3 class="fw mb-2 text-uppercase">OPCIO MENU</h3>
                     <p class="text-white-50 mb-5">A quina interface vols anar Menu admin  o Menu usuari</p>
-                    
+                    <button type="button" class="btn btn-outline-warning onclick="  location.href = 'menuAdmin.php'">MENU ADMINITRADOR</button>
+                    <br>
+               
+                    <br>
+                    <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'menuUser.php'">MENU USUARI</button>
                     
                 </div>
               </div>
