@@ -1,7 +1,10 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuari']))
+{
+  echo "fora de aqui";
+}
 
-$_SESSION['user'] = $correu;
 
 ?>
 
@@ -21,7 +24,7 @@ $_SESSION['user'] = $correu;
     <body class="vh-300 gradient-custom">
         <!--Aqui se entra nomes si ets admin , sino t'envas directament al index.php-->
        
-        <h1 class="text-end"> BENVINGUT <?php echo $_SESSION['user']; ?> </h1>
+        
 
         
        
@@ -35,8 +38,8 @@ $_SESSION['user'] = $correu;
                 <div class="card-body p-5 text-center">
       
                   <div class="mb-md-4 mt-md-4 pb-5">
-      
-                    <h2 class="fw-bold mb-2 text-uppercase">OPCIO MENU</h2>
+                  <h1  class="fw-bold mb-2 text-uppercase"> BENVINGUT <?php echo $_SESSION['usuari']; ?> </h1>
+                    <h3 class="fw mb-2 text-uppercase">OPCIO MENU</h3>
                     <p class="text-white-50 mb-5">A quina interface vols anar Menu admin  o Menu usuari</p>
                     
                     

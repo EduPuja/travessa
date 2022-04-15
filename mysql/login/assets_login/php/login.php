@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="../../assets/img/icons/footway.ico"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="../../../../assets/css/main.css" rel="stylesheet" type="text/css">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="icon" type="image/png" href="../../../../assets/img/icons/footway.ico"/>
-
-  <title>Login</title>
-</head>
-    <body>
-      
-    <section class="vh-100 gradient-custom">
-        
-      </section>
-    </body>
-</html>
 <?php
-// hola mon
-
-#include "../../../assets/php/connexioBD.php";
+session_start();
 require("../../../../assets/php/connexioBD.php");
 
 
@@ -34,10 +10,12 @@ $password = $_POST["contrassenya"];
 
 
 
+
+
 if (!isset($correu ,$password))
 {
   echo '<script language="javascript">alert("No pots entrar aqui");window.location.href="../../../login"</script>';
-
+  session_destroy();
   
 }
 else
@@ -48,21 +26,26 @@ else
     // ens dona el un array 
     $rows = mysqli_fetch_assoc($query);
     
+    $_SESSION['usuari']= $rows['nom'];
     
     if($rows >= 0)
     {
       if($rows['isAdmin'] == 1)
       {
-       
+     
         
         if(password_verify($password, $rows["contrassenya"]))
         {
-         
-          #echo session_status();
+         if(isset($_SESSION['usuari']))
+         {
+           echo "hola admin";
+            header("Location: ../../../user/menu.php");
+         }
           
-         
+          
+         // si ets admin
            
-          echo '<script>
+          /*echo '<script>
             
               Swal.fire({
                 icon: "success",
@@ -74,7 +57,9 @@ else
               })
     
             
-              </script>';
+              </script>';*/
+
+             
           
               
 
@@ -82,8 +67,10 @@ else
         }
         else
         {
+
+          
           #PASSWORD ADMIN MALA
-        echo '<script>
+          /*echo '<script>
             
               Swal.fire({
                 icon: "error",
@@ -95,9 +82,9 @@ else
               })
     
             
-              </script>';
+              </script>';*/
               
-            // header("Location: ../../../login");
+             header("Location: ../../../login");
                     
           
             
@@ -112,8 +99,12 @@ else
         if(password_verify($password, $rows["contrassenya"]))
         {
          
-         
-          echo '<script>
+         // USUARI
+         if(isset($_SESSION['usuari']))
+         {
+          echo "hola usuari";
+         }
+          /*echo '<script>
             
               Swal.fire({
                 icon: "success",
@@ -125,26 +116,15 @@ else
               })
     
             
-              </script>';
+              </script>';*/
+
+             // header("Location ../../../user/menuUser.php");
         
         }
         else
         {
-          #PASSWORD USUARI MALA
-          echo '<script>
-            
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Contrassenya Mala!",
-            confirmButtonText:
-            "<i class=fa fa-thumbs-down>Tornar al </i> " +
-            "<a href=../../../login>LOGIN</a> ",
-          })
-
-        
-          </script>';
-
+          
+          header("Location: ../../../login");
           
         }
         
@@ -153,21 +133,9 @@ else
     }
     else
     {
-      // poner alert
-      echo '<script>
-            
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Contrassenya o Correu incorretctes!",
-        confirmButtonText:
-        "<i class=fa fa-thumbs-down>Tornar al </i> " +
-        "<a href=../../../login>LOGIN</a> ",
-      })
-
+     
     
-      </script>';
-
+      header("Location: ../../../login");
    
     }
 }
