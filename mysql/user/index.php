@@ -21,7 +21,7 @@ if(!isset($_SESSION['usuari']))
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="icon" type="image/png" href="../../assets/img/icons/footway.ico">
   <!--CSS DE TAULES   -->
-  <link href="assets_user/css/user.css" type="text/css" rel="stylesheet" />
+  <link href="assets_user/css/user.css" type="text/css" rel="stylesheet">
   <link href="../../assets/css/main.css" rel="stylesheet" type="text/css">
   
 
@@ -58,7 +58,8 @@ if(!isset($_SESSION['usuari']))
 				<th class="text-center">Activada/Desactivada</th>
 				<th class="text-center">Apostar</th>
 			</tr>
-				
+				<br>
+				<br>
 
 			<?php
 				require("../../assets/php/connexioBD.php");
@@ -70,9 +71,11 @@ if(!isset($_SESSION['usuari']))
 					echo "<tr><th>".$row['local']." vs ".$row['visitant']."</th><th> ".$row['result']." </th>";
 					if($row['result']== 'Activada')
 					{
-						echo "<th><button class='btn btn-sm btn-outline-secondary me-2 active' type='button'>Apostar</button></th>";
+					
+						echo "<th class='text-center'><button class='btn btn-sm btn-outline-secondary me-2 active' type='button'>Apostar</button></th>";
 					}
-					echo "</tr>";
+					
+					
 				}
 				?>
 		</table>
