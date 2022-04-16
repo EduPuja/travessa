@@ -41,32 +41,38 @@ if(!isset($_SESSION['usuari']))
                             <div class="mb-md-4 mt-md-4 pb-5">
                                 <h1 class="fw mb-2 text-uppercase">CREAR PARTITS</h3>
                                 <h3 class="text-white-50 mb-5">Inserta les dades del partit.</h3>
-                                <form class="from-control" action="assets_gestioPartits/insertPartits" method="post">
+                                <form class="from-control" action="assets_gestioPartits/insertPartits.php" method="post">
 						            <div class="form-outline form-white mb-4">
+                                        <h5 class="text-white-50 mb-2">Equip Local</h5>
                                         <select class="form-control" name="equipLocal">
-                                            <?php                
+                                            <?php           
+                                                require("../../../assets/php/connexioBD.php");  
                                                 $query = "SELECT nom from equip";
                                                 $result = mysqli_query($connexio,$query);
+                                                echo "<option value='equip'>Escull una opcio</option>";
                                                 while($row = mysqli_fetch_assoc($result))
                                                 {
-                                                     echo "<option value='equip'>".$row['equip']."</option>";
+                                                     echo "<option value='equip'>".$row['nom']."</option>";
                                                 }
                                             ?>
                                         </select>
                                     </div>
 					            	<div class="form-outline form-white mb-4">
-                                        <input type="text" name="cognom" id="cognom" class="form-control form-control-lg" placeholder="Cognom" required />
+                                        <h5 class="text-white-50 mb-2">Equip Visitant</h5>
+                                        <select class="form-control" name="equipVisitant">
+                                            <?php           
+                                                require("../../../assets/php/connexioBD.php");  
+                                                $query = "SELECT nom from equip";
+                                                $result = mysqli_query($connexio,$query);
+                                                echo "<option value='equip'>Escull una opcio</option>";
+                                                while($row = mysqli_fetch_assoc($result))
+                                                {
+                                                     echo "<option value='equip'>".$row['nom']."</option>";
+                                                }
+                                            ?>
+                                        </select>
                                     </div>
-						            <div class="form-outline form-white mb-4">
-                                        <input type="text" name="adreca" id="adreca" class="form-control form-control-lg" placeholder="Adeça" required />
-                                    </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Email" required />
-                                    </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="password" name="contrassenya" id="contrassenya" class="form-control form-control-lg" placeholder="Password" required />
-                                    </div>
-                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">SingIn</button>
+                                    <button class="btn btn-outline-secondary btn-lg px-5 mb-5" type="submit">Sumit</button>
                                 </form>
                                 <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../user/'">MENU ADMINISTRADOR</button>
                             </div>
