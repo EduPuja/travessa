@@ -49,7 +49,7 @@ if(!isset($_SESSION['usuari']))
                                                 require("../../../assets/php/connexioBD.php");  
                                                 $query = "SELECT nom from equip";
                                                 $result = mysqli_query($connexio,$query);
-                                                echo "<option value='equip'>Escull una opcio</option>";
+                                                //echo "<option value='equip'>Escull una opcio</option>";
                                                 while($row = mysqli_fetch_assoc($result))
                                                 {
                                                      echo "<option value='equip'>".$row['nom']."</option>";

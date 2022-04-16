@@ -21,7 +21,7 @@ if(!isset($_SESSION['usuari']))
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="icon" type="image/png" href="../../assets/img/icons/footway.ico">
   <!--CSS DE TAULES   -->
-  <link href="./assets_user/css/user.css" type="text/css" rel="stylesheet">
+  <!--<link href="./assets_user/css/user.css" type="text/css" rel="stylesheet">-->
   <link href="../../assets/css/main.css" rel="stylesheet" type="text/css">
   
 
@@ -46,43 +46,53 @@ if(!isset($_SESSION['usuari']))
 			</div>
 		</div>
 	</nav>
-
-
-		<!--Taules to mamades-->
-	<div style="margin-left:300px; margin-right:300px; border-radius:1rem;" class="text-center text-light">
-	  <h2>Apostes Actuals</h2>
-	
-		<table class="text-center text-dark">
-			<tr class="text-center">
-				<th class="text-center">Partit</th>
-				<th class="text-center">Activada/Desactivada</th>
-				<th class="text-center">Apostar</th>
-			</tr>
-				<br>
-				<br>
-
-			<?php
-				require("../../assets/php/connexioBD.php");
-				$query = "SELECT e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
-				$result = mysqli_query($connexio,$query);
-				while($row = mysqli_fetch_assoc($result))
-				{
-						
-					#echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th>";
-					if($row['result']== 'Activada')
-					{
-					
-						echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button'>Apostar</button></th>";
-					}
-					else
-					{
-						echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center text-danger'> ".$row['result']." </th> <th class='text-center'></th>";
-					}
-					
-					
-				}
-				?>
-		</table>
-	</div>
-</body>	
+        <!--Comentario de index admin-->
+        <br>
+        <br>
+        <br>
+        <div class="container py-4 h-400">
+            <div class="row d-flex justify-content-center align-items-center h-1000">
+                <div class="col-120 col-md-80 col-lg-60 col-xl-50">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+                            <div class="mb-md-4 mt-md-4 pb-5">
+                                <h1 class="fw mb-2 text-uppercase">Apostes Actuals</h3>
+								<!--Aqui comença la taula-->
+                                <table class="text-center text-white table table-bordered">
+									<thead>
+										<tr class="text-center">
+											<th class="text-center">Partit</th>
+											<th class="text-center">Activada/Desactivada</th>
+											<th class="text-center">Apostar</th>
+										</tr>
+									</thead>
+									<br>
+									<br>
+									<tbody>
+									<?php
+										require("../../assets/php/connexioBD.php");
+										$query = "SELECT e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
+										$result = mysqli_query($connexio,$query);
+										while($row = mysqli_fetch_assoc($result))
+										{	
+											#echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th>";
+											if($row['result']== 'Activada')
+											{
+												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button'>Apostar</button></th>";
+											}
+											else
+											{
+												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center text-danger'> ".$row['result']." </th> <th class='text-center'></th>";
+											}
+										}
+										?>
+									</tbody>
+								</table>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
