@@ -47,9 +47,6 @@ if(!isset($_SESSION['usuari']))
 		</div>
 	</nav>
 
-	<DIV>
-		<!--eLIMINAR-->
-</DIV>
 
 		<!--Taules to mamades-->
 	<div style="margin-left:300px; margin-right:300px; border-radius:1rem;" class="text-center text-light">
