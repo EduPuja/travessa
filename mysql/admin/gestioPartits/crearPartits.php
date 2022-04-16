@@ -44,8 +44,7 @@ if(!isset($_SESSION['usuari']))
                                 <form class="from-control" action="assets_gestioPartits/insertPartits" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <select class="form-control" name="equipLocal">
-                                            <?php   
-                                                require("../../../../assets/php/connexioBD.php");                
+                                            <?php                
                                                 $query = "SELECT nom from equip";
                                                 $result = mysqli_query($connexio,$query);
                                                 while($row = mysqli_fetch_assoc($result))
