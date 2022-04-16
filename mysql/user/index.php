@@ -21,7 +21,7 @@ if(!isset($_SESSION['usuari']))
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="icon" type="image/png" href="../../assets/img/icons/footway.ico">
   <!--CSS DE TAULES   -->
-  <link href="assets_user/css/user.css" type="text/css" rel="stylesheet">
+  <link href="./assets_user/css/user.css" type="text/css" rel="stylesheet">
   <link href="../../assets/css/main.css" rel="stylesheet" type="text/css">
   
 
@@ -68,11 +68,15 @@ if(!isset($_SESSION['usuari']))
 				while($row = mysqli_fetch_assoc($result))
 				{
 						
-					echo "<tr><th>".$row['local']." vs ".$row['visitant']."</th><th> ".$row['result']." </th>";
+					#echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th>";
 					if($row['result']== 'Activada')
 					{
 					
-						echo "<th class='text-center'><button class='btn btn-sm btn-outline-secondary me-2 active' type='button'>Apostar</button></th>";
+						echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button'>Apostar</button></th>";
+					}
+					else
+					{
+						echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center text-danger'> ".$row['result']." </th> <th class='text-center'></th>";
 					}
 					
 					
