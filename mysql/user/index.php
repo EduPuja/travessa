@@ -59,11 +59,11 @@ if(!isset($_SESSION['usuari']))
 				</tr> -->
 
 				<?php
+					require("../../../../assets/php/connexioBD.php");
 					$query = "SELECT e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
 					$result = mysqli_query($connexio,$query);
 					while($row = mysqli_fetch_assoc($result))
 					{
-						
 						echo "<tr><th>".$row['local']." vs ".$row['visitant']."</th><th> ".$row['result']." </th>";
 						if($row['result']== 'Activada')
 						{
