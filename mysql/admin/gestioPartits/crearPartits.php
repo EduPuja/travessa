@@ -45,33 +45,34 @@ if(!isset($_SESSION['usuari']))
 						            <div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2">Equip Local</h5>
                                         <select class="form-control" name="equipLocal">
-                                        <optgroup label="Equips">
-                                            <?php           
-                                                require("../../../assets/php/connexioBD.php");  
-                                                $query = "SELECT nom from equip";
-                                                $result = mysqli_query($connexio,$query);
-                                                //echo "<option value='equip'>Escull una opcio</option>";
-                                                while($row = mysqli_fetch_assoc($result))
-                                                {
-                                                     echo "<option value='equip'>".$row['nom']."</option>";
-                                                }
-                                            ?>
+                                            <optgroup label="Equips">
+                                                <?php           
+                                                    require("../../../assets/php/connexioBD.php");  
+                                                    $query = "SELECT nom from equip";
+                                                    $result = mysqli_query($connexio,$query);
+                                                    //echo "<option value='equip'>Escull una opcio</option>";
+                                                    while($row = mysqli_fetch_assoc($result))
+                                                    {
+                                                        echo "<option value='opcioLoc'>".$row['nom']."</option>";
+                                                    }
+                                                ?>
                                             </optgroup>
                                         </select>
                                     </div>
 					            	<div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2">Equip Visitant</h5>
                                         <select class="form-control" name="equipVisitant">
-                                            <?php           
-                                                require("../../../assets/php/connexioBD.php");  
-                                                $query = "SELECT nom from equip";
-                                                $result = mysqli_query($connexio,$query);
-                                                echo "<option value='equip'>Escull una opcio</option>";
-                                                while($row = mysqli_fetch_assoc($result))
-                                                {
-                                                     echo "<option value='equip'>".$row['nom']."</option>";
-                                                }
-                                            ?>
+                                            <optgroup label="Equips">
+                                                <?php           
+                                                    require("../../../assets/php/connexioBD.php");  
+                                                    $query = "SELECT nom from equip";
+                                                    $result = mysqli_query($connexio,$query);
+                                                    while($row = mysqli_fetch_assoc($result))
+                                                    {
+                                                        echo "<option value='opcioVis'>".$row['nom']."</option>";
+                                                    }
+                                                ?>
+                                            </optgroup>
                                         </select>
                                     </div>
                                     <button class="btn btn-outline-secondary btn-lg px-5 mb-5" type="submit">Sumit</button>
