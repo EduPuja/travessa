@@ -6,7 +6,7 @@ $equipLocal = $_POST['equipLocal'];
 $equipVisitant = $_POST['equipVisitant'];
 
     
-
+    // variables post els imprimeixo per veure si funcionen
     echo $equipLocal .",";
     echo $equipVisitant;
 
@@ -23,8 +23,19 @@ if(mysqli_num_rows($result)>0)
 }
 else
 {
+    #INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ('3','5',2000)
+    #echo " hola";
+    $insert = "INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ($equipLocal,$equipVisitant,2000);";
+    $resultatConsulta = mysqli_query($connexio,$insert);
    
-    echo " hola";
+    if($resultatConsulta)
+    {
+        echo " insertada";
+    }
+    else
+    {
+        echo " no";
+    }
 
 } 
 
