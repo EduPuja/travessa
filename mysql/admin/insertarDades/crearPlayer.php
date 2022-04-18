@@ -37,7 +37,7 @@ if(!isset($_SESSION['usuariAdmin']))
                             <div class="form-outline form-white mb-4">
                                 <input type="text" name="nom" id="nom" class="form-control form-control-lg" placeholder="Nom Jugador" required/>
                             </div>
-              
+                            <!-- fer option value-->
                             <div class="form-outline form-white mb-4">
                               <input type="number" name="dorsal" id="dorsal" class="form-control form-control-lg" placeholder="Num Dorsal" required/>
                             </div>
