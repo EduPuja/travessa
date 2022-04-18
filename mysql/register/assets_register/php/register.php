@@ -83,7 +83,7 @@ else
 
     else
     {
-        header("Location: ../../../home.html");
+        header("Location: ../../../");
     }
 
     mysqli_close($connexio);
