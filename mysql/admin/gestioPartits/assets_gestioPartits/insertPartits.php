@@ -30,11 +30,15 @@ else
    
     if($resultatConsulta)
     {
-        echo " insertada";
+        echo '<script> 
+        alert("Partit CREAT! ");
+        window.location.href="../crearPartits.php";  </script>' ; 
     }
     else
     {
-        echo " no";
+        echo '<script> 
+        alert("Partit NO creat ");
+        window.location.href="../crearPartits.php";  </script>' ; 
     }
 
 } 
