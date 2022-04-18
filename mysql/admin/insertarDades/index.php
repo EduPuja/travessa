@@ -34,8 +34,8 @@ if(!isset($_SESSION['usuariAdmin']))
                                 <h1 class="fw mb-2 text-uppercase">MENU INSERTAR DADES</h1>
                                 <h4 class="text-white-50 mb-5">Digues quina opcio vols crear</h4>
                                 
-                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'gestioPartits/crearPartits.php'">CREAR PLAYER</button><br><br>
-                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'insertarDades/'">CREAR EQUIP</button><br><br>
+                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'crearPlayer.php'">CREAR PLAYER</button><br><br>
+                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = '#'">CREAR EQUIP</button><br><br>
                                 <button type="button"  class="btn btn-outline-primary" onclick="  location.href = '#'">VISUALITZAR TAULES</button><br><br><br>
                                 <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../'">MENU ADMINISTRADOR</button>
                             </div>
