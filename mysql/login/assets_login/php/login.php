@@ -22,17 +22,18 @@ else
     // ens dona el un array 
     $rows = mysqli_fetch_assoc($query);
     
-    $_SESSION['usuari']= $rows['nom'];
+   
+    
     
     if($rows >= 0)
     {
       if($rows['isAdmin'] == 1)
       {
-     
+        $_SESSION['usuariAdmin']= $rows['nom'];
         
         if(password_verify($password, $rows["contrassenya"]))
         {
-            if(isset($_SESSION['usuari']))
+            if(isset($_SESSION['usuariAdmin']))
             {
               # echo "hola admin";
                 header("Location: ../../../admin/");
@@ -53,7 +54,7 @@ else
       else
       {
         
-        
+        $_SESSION['usuari']= $rows['nom'];
         if(password_verify($password, $rows["contrassenya"]))
         {
          
