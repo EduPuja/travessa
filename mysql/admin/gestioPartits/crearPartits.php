@@ -62,6 +62,19 @@ if(!isset($_SESSION['usuari']))
 					            	<div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2">Equip Visitant</h5>
                                         <select class="form-control" name="equipVisitant">
+<<<<<<< HEAD
+                                            <optgroup label="Equips">
+                                                <?php           
+                                                    require("../../../assets/php/connexioBD.php");  
+                                                    $query = "SELECT nom from equip";
+                                                    $result = mysqli_query($connexio,$query);
+                                                    while($row = mysqli_fetch_assoc($result))
+                                                    {
+                                                        echo "<option value='opcioVis'>".$row['nom']."</option>";
+                                                    }
+                                                ?>
+                                            </optgroup>
+=======
                                         <optgroup label="Equips">
                                            <?php           
                                                 require("../../../assets/php/connexioBD.php");  
@@ -73,7 +86,7 @@ if(!isset($_SESSION['usuari']))
                                                      echo "<option value='equip'>".$row['nom']."</option>";
                                                 }
                                             ?>
-                                            
+>>>>>>> e1f42452fd74341e20ee7fcdb434717996a1cf55
                                         </select>
                                     </div>
                                     <button class="btn btn-outline-secondary btn-lg px-5 mb-5" type="submit">Sumit</button>
