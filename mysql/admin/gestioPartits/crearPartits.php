@@ -1,19 +1,3 @@
-<!-- HA DE SER UN PHP PER QUE COMPROVI QUE LA SESSIO ESTA INICIALITZADA-->
-<?php
-session_start();
-
-if(!isset($_SESSION['usuari']))
-{
-  echo '<script> 
-  alert("Necessites registrarte abans de poder entrar ");
-  
-
-  window.location.href="../login/";  </script>' ; 
-
-  
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -48,13 +32,16 @@ if(!isset($_SESSION['usuari']))
                                             <optgroup label="Equips">
                                                 <?php           
                                                     require("../../../assets/php/connexioBD.php");  
-                                                    $query = "SELECT nom from equip";
+                                                    $query = "SELECT id_Equip,nom from equip";
                                                     $result = mysqli_query($connexio,$query);
-                                                    //echo "<option value='equip'>Escull una opcio</option>";
-                                                    while($row = mysqli_fetch_assoc($result))
+                                                    if(mysqli_num_rows($result)>0)
                                                     {
-                                                        echo "<option value='opcioLoc'>".$row['nom']."</option>";
+                                                        while($row = mysqli_fetch_assoc($result))
+                                                        {
+                                                            echo "<option value='".$row['id_Equip']."'>".$row['nom']."</option>";
+                                                        }
                                                     }
+                                                    //echo "<option value='equip'>Escull una opcio</option>";
                                                 ?>
                                             </optgroup>
                                         </select>
@@ -62,7 +49,6 @@ if(!isset($_SESSION['usuari']))
 					            	<div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2">Equip Visitant</h5>
                                         <select class="form-control" name="equipVisitant">
-<<<<<<< HEAD
                                             <optgroup label="Equips">
                                                 <?php           
                                                     require("../../../assets/php/connexioBD.php");  
@@ -70,23 +56,10 @@ if(!isset($_SESSION['usuari']))
                                                     $result = mysqli_query($connexio,$query);
                                                     while($row = mysqli_fetch_assoc($result))
                                                     {
-                                                        echo "<option value='opcioVis'>".$row['nom']."</option>";
+                                                        echo "<option name='visitant' value='opcioVis' >".$row['nom']."</option>";
                                                     }
                                                 ?>
                                             </optgroup>
-=======
-                                        <optgroup label="Equips">
-                                           <?php           
-                                                require("../../../assets/php/connexioBD.php");  
-                                                $query = "SELECT nom from equip";
-                                                $result = mysqli_query($connexio,$query);
-                                                 //echo "<option value='equip'>Escull una opcio</option>";
-                                                while($row = mysqli_fetch_assoc($result))
-                                                {
-                                                     echo "<option value='equip'>".$row['nom']."</option>";
-                                                }
-                                            ?>
->>>>>>> e1f42452fd74341e20ee7fcdb434717996a1cf55
                                         </select>
                                     </div>
                                     <button class="btn btn-outline-secondary btn-lg px-5 mb-5" type="submit">Sumit</button>
