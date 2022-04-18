@@ -42,4 +42,6 @@
         alert("El jugador NO es correcte! ");
         window.location.href="../crearPlayer.php";  </script>' ; 
     }
+// tencar la coneixo despres 
+mysqli_close($connexio);
 ?>
