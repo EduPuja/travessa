@@ -77,6 +77,7 @@ else
 
             
             </script>';
+            header("Location: ../../../login/");
         
         }
         /*else
