@@ -79,7 +79,7 @@ if(!isset($_SESSION['usuariAdmin']))
                                     </div>
                                     <button class="btn btn-outline-secondary btn-lg px-5 mb-5" type="submit">Sumit</button>
                                 </form>
-                                <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../user/'">MENU ADMINISTRADOR</button>
+                                <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../'">MENU ADMINISTRADOR</button>
                             </div>
                         </div>
                     </div>
