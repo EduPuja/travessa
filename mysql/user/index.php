@@ -33,14 +33,14 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 		<!--Barra de navegacio-->
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-left:300px; margin-right:300px; border-radius:1rem;">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="index.php">
+			<a class="navbar-brand" href="/mysql/user/">
 			<img src="../../assets/img/icons/footway.ico" alt="LogoFootway" style="width:40px;" class="rounded-pill"> FootWay
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 					<li><a href="index.php" class="nav-link px-2 text-danger">Info Partits</a></li>
 					<li><a href="#" class="nav-link px-2 text-white">Apostes</a></li>
-					<li><a href="#" class="nav-link px-2 text-white">Perfi</a></li>
+					<li><a href="#" class="nav-link px-2 text-white">Perfil</a></li>
 
 					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
 					<button type ="button" class="btn btn-outline-warning" onclick=<?php #$_SESSION['usuari']; session_destroy(); header("Location ../mysql/home.html"); ?>>LogOut</button>
