@@ -39,23 +39,23 @@ if(!isset($_SESSION['usuariAdmin']))
 						            <div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2"></h5>
                                         <select class="form-control" name="equipLocal" for="equipLocal">
-                                            <optgroup label="Equips">
-                                                <?php           
-                                                    require("../../../assets/php/connexioBD.php");  
-                                                    $query = "SELECT id_Equip,nom from equip";
+                                            <optgroup label="Partits">
+                                                <?php 
+
+                                                    require("../../../assets/php/connexioBD.php");
+                                                    $query = "SELECT p.Id_partit,e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
                                                     $result = mysqli_query($connexio,$query);
-                                                    if(mysqli_num_rows($result)>0)
-                                                    {
-                                                        while($row = mysqli_fetch_assoc($result))
-                                                        {
-                                                            echo "<option value =".$row['id_Equip']."> ".$row['nom']."</option>";
-                                                          
-                                                        }
+                                                    while($row = mysqli_fetch_assoc($result))
+                                                    {	
+                                                        echo "<option value =".$row['p.Id_partit'].">Local: ".$row['local']." vs ".$row['visitant']." :Visitant</option>";
                                                     }
                                                     //echo "<option value='equip'>Escull una opcio</option>";
                                                 ?>
                                             </optgroup>
                                         </select>
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="password" name="contrassenya" id="contrassenya" class="form-control form-control-lg" placeholder="Gols Local: " required />
                                     </div>
 					            	
                                     <button class="btn btn-outline-secondary btn-sm px-4 mb-5" type="submit">Enviar</button>
