@@ -65,7 +65,7 @@ if(!isset($_SESSION['usuariAdmin']))
                                             </optgroup>
                                         </select>
                             </div>
-                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Crear</button> 
+                             <button class="btn btn-outline-secondary btn-sm px-4 mb-5" type="submit">Crear</button>
                             <div class="mb-md-3 mt-md-5 pb-10">
                               <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../insertarDades'">TORNAR ENRERE  </button>
                             </div>
