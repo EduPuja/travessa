@@ -42,12 +42,15 @@ if(!isset($_SESSION['usuariAdmin']))
                                                 <?php 
 
                                                     require("../../../assets/php/connexioBD.php");
-                                                    $query = "SELECT p.Id_partit,e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
+                                                    $query = "SELECT p.res_Local,p.res_Visitant,p.Id_partit,e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
                                                     $result = mysqli_query($connexio,$query);
                                                     while($row = mysqli_fetch_assoc($result))
-                                                    {	
-                                                        echo "<option class='text-center' value =".$row['p.Id_partit'].">Local= ".$row['local']." vs ".$row['visitant']." = Visitant</option>";
-                                                    }
+                                                    {
+                                                        if($row['p.res_Local'] != null && $row['p.res_Visitant'] != null)
+                                                        {
+                                                            echo "<option class='text-center' value =".$row['p.Id_partit'].">Local= ".$row['local']." vs ".$row['visitant']." = Visitant</option>";
+                                                        }
+                                                     }
                                                     //echo "<option value='equip'>Escull una opcio</option>";
                                                 ?>
                                             </optgroup>

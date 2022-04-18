@@ -19,32 +19,22 @@ $partit = $_POST['equipLocal'];
 $rondesLocal = $_POST['rondesLocal'];
 $rondesVisitant = $_POST['rondesVisitant'];
 
-if(mysqli_num_rows($result)>0)
+
+#INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ('3','5',2000)
+#echo " hola";
+$insert = "UPDATE TABLE partit SET res_Local = $rondesLocal, res_Visitant = $rondesVisitant WHERE Id_partit = $partit;";
+$resultatConsulta = mysqli_query($connexio,$insert);
+   
+if($resultatConsulta)
 {
     echo '<script> 
-    alert("No hi ha resultats ");
+    alert("Partit MODIFICAT! ");
     window.location.href="../crearPartits.php";  </script>' ; 
 }
 else
 {
-    #INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ('3','5',2000)
-    #echo " hola";
-    $insert = "INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ($equipLocal,$equipVisitant,200);";
-    $resultatConsulta = mysqli_query($connexio,$insert);
-   
-    if($resultatConsulta)
-    {
-        echo '<script> 
-        alert("Partit CREAT! ");
-        window.location.href="../crearPartits.php";  </script>' ; 
-    }
-    else
-    {
-        echo '<script> 
-        alert("Partit NO creat ");
-        window.location.href="../crearPartits.php";  </script>' ; 
-    }
-
-} 
-
+    echo '<script> 
+    alert("Partit NO modificat ");
+    window.location.href="../crearPartits.php";  </script>' ; 
+}
 ?>
