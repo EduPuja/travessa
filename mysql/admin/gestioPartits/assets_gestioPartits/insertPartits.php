@@ -1,32 +1,37 @@
 <?php
-#include "../../../../assets/php/connexioBD.php";
 #REQUIERE EL CONEXIO PHP   
 require("../../../../assets/php/connexioBD.php");
 
-$equipLocal = $_POST["equipLocal"];
-$equipVisitant = $_POST["equipVisitant"];
+$equipLocal = $_POST['equipLocal'];
+$equipVisitant = $_POST['equipVisitant'];
 
-$result = mysqli_query($connexio,"SELECT * from partit WHERE id_EquipLocal = ".$equipLocal." AND id_EquipVisitant = ".$equipVisitant."");
+    
+
+    echo $equipLocal .",";
+    echo $equipVisitant;
+
+
+    
+
+
+
 
 
 if(mysqli_num_rows($result)>0)
 {
-    echo "mal";
+    echo " mal";
 }
 else
 {
-    $insert_value = "INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ('$equipLocal','$equipVisitant','200')";
+   
+    echo " hola";
 
-    echo'<script type="text/javascript">
-      alert("El Partit s ha creat correctament");
-      window.location.href="menu_admin.php";
-      </script>';
-}
-$retry_value = mysqli_query($connexio,$insert_value);
+} 
+/*$retry_value = mysqli_query($connexio,$insert_value);
 if (!$retry_value) 
 {
    die('Error: ' . mysqli_error( $connexio ,$retry_value));
-}
+}*/
 
 mysqli_close($connexio);
 

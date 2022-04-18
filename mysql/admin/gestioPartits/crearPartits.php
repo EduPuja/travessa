@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['usuariAdmin']))
+{
+  echo '<script> 
+  alert("No ets admin! FORA DE AQUI NO ET VOLEM  ");
+  window.location.href="../login/";  </script>' ; 
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,7 +38,7 @@
                                 <form class="from-control" action="assets_gestioPartits/insertPartits.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2">Equip Local</h5>
-                                        <select class="form-control" name="equipLocal">
+                                        <select class="form-control" name="equipLocal" for="equipLocal">
                                             <optgroup label="Equips">
                                                 <?php           
                                                     require("../../../assets/php/connexioBD.php");  
@@ -38,7 +48,8 @@
                                                     {
                                                         while($row = mysqli_fetch_assoc($result))
                                                         {
-                                                            echo "<option value='".$row['id_Equip']."'>".$row['nom']."</option>";
+                                                            echo "<option value =".$row['id_Equip']."> ".$row['nom']."</option>";
+                                                          
                                                         }
                                                     }
                                                     //echo "<option value='equip'>Escull una opcio</option>";
@@ -48,15 +59,19 @@
                                     </div>
 					            	<div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2">Equip Visitant</h5>
-                                        <select class="form-control" name="equipVisitant">
+                                        <select class="form-control" name="equipVisitant" for="equipVisitant">
                                             <optgroup label="Equips">
                                                 <?php           
-                                                    require("../../../assets/php/connexioBD.php");  
-                                                    $query = "SELECT nom from equip";
+                                                    
+            
                                                     $result = mysqli_query($connexio,$query);
-                                                    while($row = mysqli_fetch_assoc($result))
+                                                    if(mysqli_num_rows($result)>0)
                                                     {
-                                                        echo "<option name='visitant' value='opcioVis' >".$row['nom']."</option>";
+                                                        while($row = mysqli_fetch_assoc($result))
+                                                        {
+                                                            #echo"<option value='".$row['id_Equip']."'>".$row['nom']."</option> ";
+                                                            echo "<option value =".$row['id_Equip']."> ".$row['nom']."</option>";
+                                                        }
                                                     }
                                                 ?>
                                             </optgroup>
