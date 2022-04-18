@@ -15,26 +15,25 @@
 #REQUIERE EL CONEXIO PHP   
 require("../../../../assets/php/connexioBD.php");
 
-$partit = $_POST['equipLocal'];
+$partit = $_POST["partit"];
 $rondesLocal = $_POST['rondesLocal'];
 $rondesVisitant = $_POST['rondesVisitant'];
-
-
-#INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ('3','5',2000)
-#echo " hola";
-$insert = "UPDATE TABLE partit SET res_Local = $rondesLocal, res_Visitant = $rondesVisitant WHERE Id_partit = $partit;";
-$resultatConsulta = mysqli_query($connexio,$insert);
+//UPDATE TABLE 'partit' SET 'res_Local' = $rondesLocal, 'res_Visitant' = $rondesVisitant WHERE 'Id_partit' = $partit;
+echo $partit .",";
+echo $rondesLocal .",";
+echo $rondesVisitant;
+/*$resultatConsulta = mysqli_query($connexio,$insert);
    
 if($resultatConsulta)
 {
     echo '<script> 
     alert("Partit MODIFICAT! ");
-    window.location.href="../crearPartits.php";  </script>' ; 
+    window.location.href="../modificarPartits.php";  </script>' ; 
 }
 else
 {
     echo '<script> 
     alert("Partit NO modificat ");
-    window.location.href="../crearPartits.php";  </script>' ; 
-}
+    window.location.href="../modificarPartits.php";  </script>' ; 
+}*/
 ?>
