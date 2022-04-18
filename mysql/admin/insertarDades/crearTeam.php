@@ -35,7 +35,7 @@ if(!isset($_SESSION['usuariAdmin']))
                             <div class="mb-md-4 mt-md-4 pb-5">
                                 <h1 class="fw mb-2 text-uppercase">CREAR Team</h3>
                                 <h4 class="text-white-50 mb-5">Inserta per crear un nou equip.</h4>
-                                <form class="from-control" action="assets_gestioPartits/insertPartits.php" method="post">
+                                <form class="from-control" action="includes/team.inc.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <input type="text" name="nomEquip" id="nomEquip" class="form-control form-control-lg" placeholder="Nom Equip" required/>
                                         
