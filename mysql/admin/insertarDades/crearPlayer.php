@@ -39,7 +39,7 @@ if(!isset($_SESSION['usuariAdmin']))
                             </div>
                             
                             <div class="form-outline form-white mb-4">
-                              <input type="number" name="dorsal" id="dorsal" class="form-control form-control-lg" placeholder="Num Dorsal" required/>
+                              <input type="number" name="dorcal" id="dorcal" class="form-control form-control-lg" placeholder="Num Dorsal" required/>
                             </div>
 
                             <div class="form-outline form-white mb-4">

@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="../../../../assets/img/icons/footway.ico"/>
     <link href="../../../../assets/css/main.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="vh-100 gradient-custom">
     
 </body>
 </html>
@@ -18,22 +18,21 @@
     require("../../../../assets/php/connexioBD.php");   
 
     $nomJugador = $_POST['nomJugador'];
-    $dorsal = $_POST['dorsal'];
+    $dorcal = $_POST['dorcal'];
     $id_Equip = $_POST['idEquip'];
 
-
+    #INSERT INTO `jugadors`(`nom`, `dorcal`, `id_Equip`) VALUES ('pepe',102,4)
     # CONUSLTA PER INSERTAR LES DADES DE POST A LA BBDD TRAVESSA
-    $query = "INSERT INTO jugadors (nom,dorsal,id_Equip) VALUES ('$nomJugador',$dorsal,$id_Equip)";
+    $insert = "INSERT INTO jugadors (nom,dorcal,id_Equip) VALUES ('$nomJugador',$dorcal,$id_Equip)";
 
-    $result = mysqli_query($connexio,$query);
+    $result = mysqli_query($connexio,$insert);
 
-    if($result)
+    if(result)
     {
-        echo "oka";
+        echo "esta good";
     }
     else
     {
-        echo "mal";
+        echo "esta sheeet";
     }
-
 ?>
