@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 14-04-2022 a las 16:19:01
+-- Tiempo de generación: 18-04-2022 a las 22:03:58
 -- Versión del servidor: 8.0.28-0ubuntu0.20.04.3
 -- Versión de PHP: 7.4.3
 
@@ -36,6 +36,19 @@ CREATE TABLE `aposta` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `contacte`
+--
+
+CREATE TABLE `contacte` (
+  `idContacte` int NOT NULL,
+  `nom` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL DEFAULT 'NOT NULL',
+  `descripcio` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `equip`
 --
 
@@ -55,7 +68,11 @@ INSERT INTO `equip` (`id_Equip`, `nom`, `pais`) VALUES
 (4, 'Vodafone Giants', 'Europa'),
 (5, 'Team SoloMid', 'Norteamérica'),
 (6, 'Cloud9', 'Norteamérica'),
-(7, 'KRÜ Esports', 'Sudamérica');
+(7, 'KRÜ Esports', 'Sudamérica'),
+(8, 'Mulan', 'AAA'),
+(9, 'Mulan', 'AAA'),
+(10, '234342342', '23423423'),
+(11, '12312', '31212');
 
 -- --------------------------------------------------------
 
@@ -96,15 +113,14 @@ INSERT INTO `jugadors` (`id_Jugador`, `nom`, `dorcal`, `id_Equip`) VALUES
 (19, 'jonba', '4', 4),
 (20, 'HITBOX', '5', 4),
 (21, 'Subroza', '1', 5),
-(22, 'Wardell', '2', 5),
-(23, 'drone', '3', 5),
-(24, 'hazed', '4', 5),
-(25, 'reltuC', '5', 5),
 (26, 'Relyks', '1', 6),
 (27, 'TenZ', '2', 6),
 (28, 'mitch', '3', 6),
 (29, 'shinobi', '4', 6),
-(30, 'vice', '5', 6);
+(30, 'vice', '5', 6),
+(34, 'EDUARD', '102', 4),
+(35, 'Daniel', '200', 1),
+(36, 'Jordi', '2002', 4);
 
 -- --------------------------------------------------------
 
@@ -161,6 +177,13 @@ INSERT INTO `usuari` (`isAdmin`, `email`, `nom`, `cognom`, `contrassenya`, `adre
 --
 
 --
+-- Indices de la tabla `contacte`
+--
+ALTER TABLE `contacte`
+  ADD PRIMARY KEY (`idContacte`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indices de la tabla `equip`
 --
 ALTER TABLE `equip`
@@ -190,16 +213,22 @@ ALTER TABLE `usuari`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `contacte`
+--
+ALTER TABLE `contacte`
+  MODIFY `idContacte` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `equip`
 --
 ALTER TABLE `equip`
-  MODIFY `id_Equip` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_Equip` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `jugadors`
 --
 ALTER TABLE `jugadors`
-  MODIFY `id_Jugador` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_Jugador` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `partit`
