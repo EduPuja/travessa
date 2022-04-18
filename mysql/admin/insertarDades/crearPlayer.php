@@ -23,7 +23,7 @@ if(!isset($_SESSION['usuariAdmin']))
 </head>
 <body class="vh-100 gradient-custom">
     <!--Comentario de index admin-->
-    <div class="container py-5 h-100">
+    <div class="container py-5 h-100" style="">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
               <div class="card bg-dark text-white" style="border-radius: 1rem;">
@@ -33,13 +33,37 @@ if(!isset($_SESSION['usuariAdmin']))
           
                         <h2 class="fw-bold mb-2 text-uppercase">Crear Jugador</h2>
                         <p class="text-white-50 mb-5">Entra un jugador</p>
-                        <form class="from-control" action="###" method="post">
+                        <form class="from-control" action="includes/createplayer.inc.php" method="post">
                             <div class="form-outline form-white mb-4">
-                                <input type="text" name="nom" id="nom" class="form-control form-control-lg" placeholder="Nom Jugador" required/>
+                                <input type="text" name="nomJugador" id="nomJugador" class="form-control form-control-lg" placeholder="Nom Jugador" required/>
                             </div>
-              
+                            
                             <div class="form-outline form-white mb-4">
                               <input type="number" name="dorsal" id="dorsal" class="form-control form-control-lg" placeholder="Num Dorsal" required/>
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <!-- fer option value-->
+                               
+                                       <h5 class="text-white-50 mb-2">Escull el equip que vols?</h5>
+                                        <select class="form-control" name="idEquip" for="idEquip">
+                                            <optgroup label="Equips">
+                                                <?php           
+                                                    require("../../../assets/php/connexioBD.php");  
+                                                    $query = "SELECT id_Equip,nom from equip";
+                                                    $result = mysqli_query($connexio,$query);
+                                                    if(mysqli_num_rows($result)>0)
+                                                    {
+                                                        while($row = mysqli_fetch_assoc($result))
+                                                        {
+                                                            echo "<option value =".$row['id_Equip']."> ".$row['nom']."</option>";
+                                                          
+                                                        }
+                                                    }
+                                                    //echo "<option value='equip'>Escull una opcio</option>";
+                                                ?>
+                                            </optgroup>
+                                        </select>
                             </div>
                             <button class="btn btn-outline-light btn-lg px-5" type="submit">Crear</button> 
                         </form>
