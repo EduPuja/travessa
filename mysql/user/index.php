@@ -1,16 +1,18 @@
 <!-- HA DE SER UN PHP PER QUE COMPROVI QUE LA SESSIO ESTA INICIALITZADA-->
 <?php
 session_start();
+
+
 if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
-{
-  echo '<script> 
-  alert("Necessites registrarte abans de poder entrar ");
-  
-
-  window.location.href="../login/";  </script>' ; 
-
+	{
+		echo '<script> 
+		alert("Necessites registrarte abans de poder entrar ");
+		window.location.href="../login/";  </script>' ; 
+		session_destroy();
+		#header("Location ../../home.html"); 
  
-}
+	}
+
 ?>
 <html lang="es">
 <head>
@@ -39,8 +41,11 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 					<li><a href="index.php" class="nav-link px-2 text-danger">Info Partits</a></li>
 					<li><a href="#" class="nav-link px-2 text-white">Apostes</a></li>
 					<li><a href="#" class="nav-link px-2 text-white">Perfi</a></li>
-					<!--<button type ="button" class="btn btn-outline-warning" onclick=<?php //$_SESSION['usuari']; session_destroy(); header("Location ../mysql/home.html"); ?>>LogOut</button>-->
+
+					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
+					<button type ="button" class="btn btn-outline-warning" onclick=<?php $_SESSION['usuari']; session_destroy(); header("Location ../mysql/home.html"); ?>>LogOut</button>
 					
+				
 					
          		</ul>
 			</div>
