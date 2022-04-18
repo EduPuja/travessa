@@ -21,18 +21,25 @@
     $dorcal = $_POST['dorcal'];
     $id_Equip = $_POST['idEquip'];
 
+    #exemple de consulta
     #INSERT INTO `jugadors`(`nom`, `dorcal`, `id_Equip`) VALUES ('pepe',102,4)
     # CONUSLTA PER INSERTAR LES DADES DE POST A LA BBDD TRAVESSA
+
     $insert = "INSERT INTO jugadors (nom,dorcal,id_Equip) VALUES ('$nomJugador',$dorcal,$id_Equip)";
 
     $result = mysqli_query($connexio,$insert);
 
     if(result)
-    {
-        echo "esta good";
+    {  # echo "esta NICE";
+        echo '<script> 
+        alert("Jugador Entrat! ");
+        window.location.href="../crearPlayer.php";  </script>' ; 
     }
     else
     {
-        echo "esta sheeet";
+        # echo "esta sheeet";
+        echo '<script> 
+        alert("El jugador NO es correcte! ");
+        window.location.href="../crearPlayer.php";  </script>' ; 
     }
 ?>
