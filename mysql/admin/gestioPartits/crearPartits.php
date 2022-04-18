@@ -33,7 +33,7 @@ if(!isset($_SESSION['usuariAdmin']))
                         <div class="card-body p-5 text-center">
             
                             <div class="mb-md-4 mt-md-4 pb-5">
-                                <h1 class="fw mb-2 text-uppercase">CREAR PARTITS</h3>
+                                <h1 class="fw mb-2 text-uppercase">CREAR PARTIT</h3>
                                 <h3 class="text-white-50 mb-5">Inserta les dades del partit.</h3>
                                 <form class="from-control" action="assets_gestioPartits/insertPartits.php" method="post">
 						            <div class="form-outline form-white mb-4">
@@ -77,9 +77,9 @@ if(!isset($_SESSION['usuariAdmin']))
                                             </optgroup>
                                         </select>
                                     </div>
-                                    <button class="btn btn-outline-secondary btn-lg px-5 mb-5" type="submit">Sumit</button>
+                                    <button class="btn btn-outline-secondary btn-sm px-4 mb-5" type="submit">Enviar</button>
                                 </form>
-                                <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../'">MENU ADMINISTRADOR</button>
+                                <button type="button"  class="btn btn-outline-warning" onclick="  location.href = 'index.php'">TORNAR ENRERE</button>
                             </div>
                         </div>
                     </div>
