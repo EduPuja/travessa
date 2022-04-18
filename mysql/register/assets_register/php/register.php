@@ -78,11 +78,7 @@ else
             header("Location: ../../../login/");
         
         }
-        /*else
-        {
-            echo "NO HAS INSERTAT";
-            //REDIRECIO 
-        }*/
+       
     }
 
     else
