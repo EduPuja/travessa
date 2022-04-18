@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insertar Partit</title>
     <link href="../../../../assets/css/main.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="../../../../assets/img/icons/footway.ico"/>
 </head>
 <body class="vh-100 gradient-custom" >
     
