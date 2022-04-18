@@ -34,7 +34,7 @@ else
 {
     #INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ('3','5',2000)
     #echo " hola";
-    $insert = "INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ($equipLocal,$equipVisitant,2000);";
+    $insert = "INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ($equipLocal,$equipVisitant,200);";
     $resultatConsulta = mysqli_query($connexio,$insert);
    
     if($resultatConsulta)
