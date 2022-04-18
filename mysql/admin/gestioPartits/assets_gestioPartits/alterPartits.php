@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insertar Partit</title>
+    <title>Modificar Partit</title>
     <link href="../../../../assets/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body class="vh-100 gradient-custom" >
@@ -15,15 +15,17 @@
 #REQUIERE EL CONEXIO PHP   
 require("../../../../assets/php/connexioBD.php");
 
-$equipLocal = $_POST['equipLocal'];
-$equipVisitant = $_POST['equipVisitant'];
+$partit = $_POST['equipLocal'];
+$rondesLocal = $_POST['rondesLocal'];
+$rondesVisitant = $_POST['rondesVisitant'];
 
-    
-    // variables post els imprimeixo per veure si funcionen
-    echo $equipLocal .",";
-    echo $equipVisitant;
-
-if($equipLocal != $equipVisitant)
+if(mysqli_num_rows($result)>0)
+{
+    echo '<script> 
+    alert("No hi ha resultats ");
+    window.location.href="../crearPartits.php";  </script>' ; 
+}
+else
 {
     #INSERT INTO partit (id_EquipLocal,id_EquipVisitant,benefici) VALUES ('3','5',2000)
     #echo " hola";
@@ -42,15 +44,7 @@ if($equipLocal != $equipVisitant)
         alert("Partit NO creat ");
         window.location.href="../crearPartits.php";  </script>' ; 
     }
-}
-else 
-{
-    echo '<script> 
-    alert("Un dels dos equips estan repetits");
-    window.location.href="../crearPartits.php";  </script>' ; 
-}
-   
 
-
+} 
 
 ?>

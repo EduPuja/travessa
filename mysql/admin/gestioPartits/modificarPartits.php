@@ -28,18 +28,17 @@ if(!isset($_SESSION['usuariAdmin']))
         <br>
         <div class="container py-4 h-400">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="col-100 col-md-60 col-lg-45 col-xl-40">
                     <div class="card bg-dark text-white" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
-            
                             <div class="mb-md-4 mt-md-4 pb-5">
-                                <h1 class="fw mb-2 text-uppercase">MODIFICAR PARTIT</h3>
-                                <h3 class="text-white-50 mb-5">.</h3>
-                                <form class="from-control" action="assets_gestioPartits/insertPartits.php" method="post">
+                                <h1 class="fw mb-2 text-uppercase">MODIFICAR PARTIT</h1>
+                                <h4 class="text-white-50 mb-5">Escull una opcio.</h4>
+                                <form class="from-control" action="assets_gestioPartits/alterPartits.php" method="post">
 						            <div class="form-outline form-white mb-4">
-                                        <h5 class="text-white-50 mb-2"></h5>
+                                        <h5 class="text-white-50 mb-2 text-center">Partits acutuals</h5>
                                         <select class="form-control" name="equipLocal" for="equipLocal">
-                                            <optgroup label="Partits">
+                                            <optgroup class="text-center" label="Partits">
                                                 <?php 
 
                                                     require("../../../assets/php/connexioBD.php");
@@ -47,7 +46,7 @@ if(!isset($_SESSION['usuariAdmin']))
                                                     $result = mysqli_query($connexio,$query);
                                                     while($row = mysqli_fetch_assoc($result))
                                                     {	
-                                                        echo "<option value =".$row['p.Id_partit'].">Local: ".$row['local']." vs ".$row['visitant']." :Visitant</option>";
+                                                        echo "<option class='text-center' value =".$row['p.Id_partit'].">Local= ".$row['local']." vs ".$row['visitant']." = Visitant</option>";
                                                     }
                                                     //echo "<option value='equip'>Escull una opcio</option>";
                                                 ?>
@@ -55,9 +54,11 @@ if(!isset($_SESSION['usuariAdmin']))
                                         </select>
                                     </div>
                                     <div class="form-outline form-white mb-4">
-                                        <input type="password" name="contrassenya" id="contrassenya" class="form-control form-control-lg" placeholder="Gols Local: " required />
+                                        <input type="text" name="rondesLocal" id="text" class="form-control form-control-sm text-center" placeholder="Rondes equip local... " required />
                                     </div>
-					            	
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" name="rondesVisitant" id="text" class="form-control form-control-sm text-center" placeholder="Rondes equip visitant... " required />
+                                    </div>
                                     <button class="btn btn-outline-secondary btn-sm px-4 mb-5" type="submit">Enviar</button>
                                 </form>
                                 <button type="button"  class="btn btn-outline-warning" onclick="  location.href = 'index.php'">TORNAR ENRERE</button>

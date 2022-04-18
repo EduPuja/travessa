@@ -34,7 +34,7 @@ if(!isset($_SESSION['usuariAdmin']))
             
                             <div class="mb-md-4 mt-md-4 pb-5">
                                 <h1 class="fw mb-2 text-uppercase">CREAR PARTIT</h3>
-                                <h3 class="text-white-50 mb-5">Inserta les dades del partit.</h3>
+                                <h4 class="text-white-50 mb-5">Inserta les dades del partit.</h4>
                                 <form class="from-control" action="assets_gestioPartits/insertPartits.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2">Equip Local</h5>
