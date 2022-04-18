@@ -36,7 +36,6 @@ if(!isset($_SESSION['usuariAdmin']))
                                 
                                 <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'crearPlayer.php'">CREAR PLAYER</button><br><br>
                                 <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'crearTeam.php'">CREAR EQUIP</button><br><br>
-                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = '#'">VISUALITZAR TAULES</button><br><br><br>
                                 <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../'">MENU ADMINISTRADOR</button>
                             </div>
                         </div>
