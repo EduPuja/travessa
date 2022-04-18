@@ -64,7 +64,7 @@ if(!isset($_SESSION['usuariAdmin']))
                                     </div>
                                     <button class="btn btn-outline-secondary btn-sm px-4 mb-5" type="submit">Enviar</button>
                                 </form>
-                                <button type="button"  class="btn btn-outline-warning" onclick="  location.href = 'index.php'">TORNAR ENRERE</button>
+                                <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../gestioPartits/'">TORNAR ENRERE</button>
                             </div>
                         </div>
                     </div>
