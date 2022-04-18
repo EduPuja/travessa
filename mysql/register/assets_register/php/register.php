@@ -13,11 +13,9 @@
 
   <title>Register</title>
 </head>
-    <body>
+    <body class="vh-100 gradient-custom">
       
-    <section class="vh-100 gradient-custom">
-        
-      </section>
+    
     </body>
 </html>
 
@@ -35,7 +33,7 @@ $password = $_POST["contrassenya"];
 
 if (!isset($correu ,$password,$nom,$adreca))
 {
-    echo '<script language="javascript">alert("No pots entrar aqui");window.location.href="../../../register"</script>';
+    #echo '<script language="javascript">alert("No pots entrar aqui");window.location.href="../../../register"</script>';
 }
 else
 {
