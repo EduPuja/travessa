@@ -38,7 +38,7 @@ if(!isset($_SESSION['usuariAdmin']))
                                 <h1  class="fw-bold mb-2 text-uppercase"> BENVINGUT <?php echo $_SESSION['usuariAdmin']; ?> </h1>
                                 <h3 class="fw mb-2 text-uppercase">MENU ADMINISTRADOR</h3>
                                 <p class="text-white-50 mb-5">Escull l'opcio que vulgis.</p>
-                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'gestioPartits/crearPartits.php'">GESTIO PARTITS</button><br><br>
+                                <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'gestioPartits/'">GESTIO PARTITS</button><br><br>
                                 <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'insertarDades/'">INSERTAR DADES</button><br><br>
                                 <button type="button"  class="btn btn-outline-primary" onclick="  location.href = '#'">VISUALITZAR TAULES</button><br><br><br>
                                 <button type="button"  class="btn btn-outline-warning" onclick="  location.href = '../user/'">MENU USUARI</button>
