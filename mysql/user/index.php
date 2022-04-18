@@ -43,7 +43,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 					<li><a href="#" class="nav-link px-2 text-white">Perfi</a></li>
 
 					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
-					<button type ="button" class="btn btn-outline-warning" onclick=<?php $_SESSION['usuari']; session_destroy(); header("Location ../mysql/home.html"); ?>>LogOut</button>
+					<button type ="button" class="btn btn-outline-warning" onclick=<?php #$_SESSION['usuari']; session_destroy(); header("Location ../mysql/home.html"); ?>>LogOut</button>
 					
 				
 					
