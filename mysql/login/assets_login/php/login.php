@@ -47,6 +47,7 @@ else
     
     if($rows >= 0)
     {
+
       if($rows['isAdmin'] == 1)
       {
         $_SESSION['usuariAdmin']= $rows['nom'];
