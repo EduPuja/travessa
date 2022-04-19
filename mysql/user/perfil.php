@@ -45,6 +45,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 					<li><a href="/mysql/user/" class="nav-link px-2 text-white ">Info Partits</a></li>
+                    
 					<li><a href="perfil.php" class="nav-link px-2 active text-danger" >Perfil</a></li>
 
 					
@@ -68,7 +69,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                 
                                 <p class="text-white-50 mb-3">Aqui esta tota la teva informacio</p>
                                 
-                                <form class="from-control" action="" method="post">
+                                <form class="from-control" action="assets_user/includes/changeUser.inc.php" method="post">
 									<?php
 										require("../../assets/php/connexioBD.php");
                                         #$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
