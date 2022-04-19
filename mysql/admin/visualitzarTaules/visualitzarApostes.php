@@ -32,16 +32,17 @@ if(!isset($_SESSION['usuariAdmin']))
                     <div class="card bg-dark text-white" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
                             <div class="mb-md-4 mt-md-4 pb-5">
-                                <h1 class="fw mb-2 text-uppercase text-warning">TAULA JUGADORS</h1>
-                                <h4 class="text-white-50 mb-5">Aqui tens la taula jugadors amb totes les seves dades.</h4>
+                                <h1 class="fw mb-2 text-uppercase text-warning">TAULA APOSTES USUARIS</h1>
+                                <h4 class="text-white-50 mb-5">Aqui tens la taula d'apostes dels usuaris amb totes les seves dades.</h4>
 						            <div class="form-outline form-white mb-4">
                                         <table class="text-center text-white table table-bordered">
                                             <thead>
                                                 <tr class="text-center">
-                                                    <th class="text-center text-warning">Id_Jugador</th>
-											        <th class="text-center text-warning">Nom</th>
-											        <th class="text-center text-warning">Dorçal</th>
-                                                    <th class="text-center text-warning">Equip</th>
+                                                    <th class="text-center text-warning">Correo Usuari</th>
+											        <th class="text-center text-warning">Id_Partit Apostat</th>
+											        <th class="text-center text-warning">Resultat Local</th>
+                                                    <th class="text-center text-warning">Resultat Visitant</th>
+                                                    <th class="text-center text-warning">Calers Apostats</th>
                                                 </tr>
                                             </thead>
                                             <br>
@@ -49,21 +50,16 @@ if(!isset($_SESSION['usuariAdmin']))
                                             <tbody>
                                                 <?php
                                                 require("../../../assets/php/connexioBD.php");
-                                                $query = "SELECT 	
-                                                ju.id_Jugador as idJugador,
-                                                ju.nom as nomJugador,
-                                                dorcal,
-                                                e.nom as equipJugador
-                                                from jugadors ju 
-                                                INNER JOIN equip e ON e.id_Equip = ju.id_Equip";
+                                                $query = "SELECT id_usuari as correoUsuari, id_partit,res_local,res_Visitant,dinersApostats from aposta";
                                                 $result = mysqli_query($connexio,$query);
                                                 while($row = mysqli_fetch_assoc($result))
                                                 {
                                                     echo"<tr>
-                                                    <th class='text-center'>".$row['idJugador']."</th>
-                                                    <th class='text-center'>".$row['nomJugador']."</th>
-                                                    <th class='text-center'>".$row['dorcal']."</th>
-                                                    <th class='text-center'>".$row['equipJugador']."</th>
+                                                    <th class='text-center'>".$row['correoUsuari']."</th>
+                                                    <th class='text-center'>".$row['id_partit']."</th>
+                                                    <th class='text-center'>".$row['res_local']."</th>
+                                                    <th class='text-center'>".$row['res_Visitant']."</th>
+                                                    <th class='text-center'>".$row['dinersApostats']."</th>
                                                         ";
                                                 }
                                                 ?>
