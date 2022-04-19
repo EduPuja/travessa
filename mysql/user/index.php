@@ -38,9 +38,9 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li><a href="index.php" class="nav-link px-2 text-danger">Info Partits</a></li>
-					<li><a href="#" class="nav-link px-2 text-white">Apostes</a></li>
-					<li><a href="#" class="nav-link px-2 text-white">Perfil</a></li>
+					<li><a href="/mysql/user/" class="nav-link px-2 text-danger">Info Partits</a></li>
+					<li><a href="/mysql/user/apoestes.php" class="nav-link px-2 text-white">Apostes</a></li>
+					<li><a href="/mysql/user/perfil.php" class="nav-link px-2 text-white">Perfil</a></li>
 
 					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
 					<!--<button type ="button" class="btn btn-outline-warning" onclick=<?php #$_SESSION['usuari']; session_destroy(); header("Location ../mysql/home.html"); ?>>LogOut</button>-->
