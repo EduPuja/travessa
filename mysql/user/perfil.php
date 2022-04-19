@@ -83,20 +83,28 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 									<tbody>
 									<?php
 										require("../../assets/php/connexioBD.php");
-										$query = "SELECT email,nom,cognom,adreca,cartera FROM usuari WHERE nom =$_SESSION[usuari] OR nom= $_SESSION[usuariAdmin]";
+										$query = "SELECT email,nom,cognom,adreca,cartera FROM usuari WHERE nom ='$_SESSION[usuari]' OR nom= '$_SESSION[usuariAdmin]'";
 										$result = mysqli_query($connexio,$query);
-										while($row = mysqli_fetch_assoc($result))
-										{	
+
+                                        if($result)
+                                        {
+                                            echo "hola";
+
+                                            /*while($row = mysqli_fetch_assoc($result))
+										    {	
+
 											
-											if($row['result']== 'Activada')
-											{
-												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button'>Apostar</button></th>";
-											}
-											else
-											{
-												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center text-danger'> ".$row['result']." </th> <th class='text-center'></th>";
-											}
-										}
+										        echo "<tr><th class='text-center'>".$row['email']."  ".$row['nom']."</th><th class='text-center'> ".$row['congom']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button'>Apostar</button></th>";
+										
+											
+											
+										    }*/
+                                            
+                                        }
+                                        else{
+                                           echo " adeu"; 
+                                        }
+										
 										?>
 									</tbody>
 								</table>
