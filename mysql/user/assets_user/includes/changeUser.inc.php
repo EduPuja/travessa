@@ -19,8 +19,9 @@
 
     if($rows <= 0)
     {
-        $update = "UPDATE `usuari` SET `nom`= $nom,`cognom`=$cognom ,`contrassenya`= $hash WHERE `correu` = $correu ";
+        $update = "UPDATE `usuari` SET `nom`= '$nom',`cognom`='$cognom' ,`contrassenya`= '$hash' WHERE `correu` = '$correu' ";
         $exito = mysqli_query($connexio,$update);
+
         if($exito)
         {
             echo "SE CANVIAT";
