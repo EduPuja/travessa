@@ -39,7 +39,6 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 					<li><a href="/mysql/user/" class="nav-link px-2 text-danger">Info Partits</a></li>
-					<li><a href="/mysql/user/apoestes.php" class="nav-link px-2 text-white">Apostes</a></li>
 					<li><a href="/mysql/user/perfil.php" class="nav-link px-2 text-white">Perfil</a></li>
 
 					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
@@ -83,7 +82,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 											#echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th>";
 											if($row['result']== 'Activada')
 											{
-												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button'>Apostar</button></th>";
+												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button' onclick=' location.href = '.php''>Apostar</button></th>";
 											}
 											else
 											{
