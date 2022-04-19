@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 18-04-2022 a las 22:03:58
+-- Tiempo de generación: 19-04-2022 a las 08:10:38
 -- Versión del servidor: 8.0.28-0ubuntu0.20.04.3
 -- Versión de PHP: 7.4.3
 
@@ -29,7 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aposta` (
-  `resultat` int DEFAULT '-1',
+  `id_usuari` varchar(100) NOT NULL,
+  `id_partit` int NOT NULL,
+  `res_Local` int NOT NULL,
+  `res_Visitant` int NOT NULL,
   `dinersApostats` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -68,11 +71,7 @@ INSERT INTO `equip` (`id_Equip`, `nom`, `pais`) VALUES
 (4, 'Vodafone Giants', 'Europa'),
 (5, 'Team SoloMid', 'Norteamérica'),
 (6, 'Cloud9', 'Norteamérica'),
-(7, 'KRÜ Esports', 'Sudamérica'),
-(8, 'Mulan', 'AAA'),
-(9, 'Mulan', 'AAA'),
-(10, '234342342', '23423423'),
-(11, '12312', '31212');
+(7, 'KRÜ Esports', 'Sudamérica');
 
 -- --------------------------------------------------------
 
@@ -113,14 +112,16 @@ INSERT INTO `jugadors` (`id_Jugador`, `nom`, `dorcal`, `id_Equip`) VALUES
 (19, 'jonba', '4', 4),
 (20, 'HITBOX', '5', 4),
 (21, 'Subroza', '1', 5),
+(22, 'Wardell', '2', 5),
+(23, 'drone', '3', 5),
+(24, 'hazed', '4', 5),
+(25, 'reltuC', '5', 5),
 (26, 'Relyks', '1', 6),
 (27, 'TenZ', '2', 6),
 (28, 'mitch', '3', 6),
 (29, 'shinobi', '4', 6),
 (30, 'vice', '5', 6),
-(34, 'EDUARD', '102', 4),
-(35, 'Daniel', '200', 1),
-(36, 'Jordi', '2002', 4);
+(31, 'pepe', '22', 4);
 
 -- --------------------------------------------------------
 
@@ -142,9 +143,9 @@ CREATE TABLE `partit` (
 --
 
 INSERT INTO `partit` (`Id_partit`, `id_EquipLocal`, `id_EquipVisitant`, `res_Local`, `res_Visitant`, `benefici`) VALUES
-(3, 1, 7, 32, 2, 200),
-(4, 4, 3, NULL, NULL, 150),
-(5, 6, 5, NULL, NULL, 250);
+(26, 3, 1, 32, 32, 200),
+(27, 3, 4, 2, 1, 200),
+(28, 7, 5, NULL, NULL, 200);
 
 -- --------------------------------------------------------
 
@@ -167,7 +168,7 @@ CREATE TABLE `usuari` (
 --
 
 INSERT INTO `usuari` (`isAdmin`, `email`, `nom`, `cognom`, `contrassenya`, `adreca`, `cartera`) VALUES
-(1, 'descobar@inspalamos.cat', 'Dani', 'Escobar', '$2y$10$AU3fOX9E.eKWL47kCqjRXOcam9PbSnGcz8Mv3/vFbWUq4ZMzYyh76', 'aaa', NULL),
+(1, 'descobar@inspalamos.cat', 'Daniel', 'Escobar', '$2y$10$dpfJ.GAEeGtFa3N/lpgoMevTvTIclJeU2x/57WeKo63yWYFMcDBnO', 'Vallo', NULL),
 (1, 'edpufa@inspalamos.cat', 'Edu', 'Pujadas', '$2y$10$mYmVc6jrRhoLK34eV.jGGOoPDfQWPgLu.gKT.ErIgyNBxsHOiC5/K', 'Pals', NULL),
 (0, 'fdsa@gmail.com', 'fdsa', 'fdsa', '$2y$10$ZyT22k//a.ZElvrPtPYxCutV2cGi.08ajP1iSfyLwMJfLFt9iHYyy', 'fdsa', NULL),
 (0, 'prova@gmail.com', 'prova', 'aa', '$2y$10$TRk/ICyuOaqxvPkuLKh2n.RmFtjCPtfsbr.zu4/OhnpmmtQyv0UXu', 'prova', NULL);
@@ -175,13 +176,6 @@ INSERT INTO `usuari` (`isAdmin`, `email`, `nom`, `cognom`, `contrassenya`, `adre
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `contacte`
---
-ALTER TABLE `contacte`
-  ADD PRIMARY KEY (`idContacte`),
-  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indices de la tabla `equip`
@@ -213,34 +207,23 @@ ALTER TABLE `usuari`
 --
 
 --
--- AUTO_INCREMENT de la tabla `contacte`
---
-ALTER TABLE `contacte`
-  MODIFY `idContacte` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `equip`
 --
 ALTER TABLE `equip`
-  MODIFY `id_Equip` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_Equip` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `jugadors`
 --
 ALTER TABLE `jugadors`
-  MODIFY `id_Jugador` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_Jugador` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `partit`
 --
 ALTER TABLE `partit`
-  MODIFY `Id_partit` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id_partit` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
-
----
---- id_partit en la tabla aposta
---- 
-ALTER TABLE `aposta` ADD `id_partit` INT NOT NULL AFTER `id_usuari`;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
