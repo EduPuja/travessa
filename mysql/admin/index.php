@@ -41,7 +41,7 @@ if(!isset($_SESSION['usuariAdmin']))
                                 <button type="button"  class="btn btn-primary" onclick="  location.href = 'gestioPartits/'">GESTIO PARTITS</button><br><br>
                                 <button type="button"  class="btn btn-primary" onclick="  location.href = 'insertarDades/'">INSERTAR DADES</button><br><br>
                                 <button type="button"  class="btn btn-primary" onclick="  location.href = 'visualitzarTaules/'">VISUALITZAR TAULES</button><br><br><br>
-                                <button type="button"  class="btn btn-warning" onclick="  location.href = '../user/'">MENU USUARI</button>
+                                <button type="button"  class="btn btn-warning" onclick="  location.href = 'userAdmin.php'">MENU USUARI</button>
                             </div>
                         </div>
                     </div>
