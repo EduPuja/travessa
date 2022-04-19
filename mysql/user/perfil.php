@@ -67,7 +67,8 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                             <div class="mb-md-4 mt-md-4 pb-5">
                                 <h1 class="fw mb-2 text-uppercase">Perfil Usuari <?php echo"@". $_SESSION['usuari']; echo $_SESSION['usuariAdmin'];?></h3>
                                 
-                                <p class="text-white-50 mb-5">Aqui esta tota la teva informacio</p>
+                                <p class="text-white-50 mb-3">Aqui esta tota la teva informacio</p>
+                                
                                 <form class="from-control" action="" method="post">
 									<?php
 										require("../../assets/php/connexioBD.php");
@@ -78,10 +79,12 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                         if($result)
                                         {   
                                             $row = mysqli_fetch_assoc($result);
-                                           #correu
-                                            echo" <div class='form-outline form-white mb-4'>
-                                                    <input type='email' value ='$row[email]' name='email' id='email' class='form-control form-control-lg'  readonly/>
-                                                 </div>";
+                                            echo "<h5 class='text-white-50 text-uppercase mb-3'>Correo Electronic: ". $row['email']." <h5>";
+                                            echo "<h5 class='text-white-50 text-uppercase mb-3'>Nom: ". $row['nom_usuari']. " ". $row['cognom']. " <h5>";
+                                            echo "<h5 class='text-white-50 text-uppercase mb-3'>Adeça: ". $row['adreca']. " <h5>";
+
+                                            echo "<p class='text-white-50 mb-4'>Vos modificar alguna dada?? </p>";
+
                                             #nom
                                             echo"<div class='form-outline form-white mb-4'>
                                                   <input type='text' name='nom' placeholder='New Name'  id='nom' class='form-control form-control-lg'  />
