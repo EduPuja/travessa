@@ -83,7 +83,7 @@ if(!isset($_SESSION['usuariAdmin']))
                                         {   
                                             $row = mysqli_fetch_assoc($result);
                                             echo "<h5 class='text-white-50 text-uppercase mb-3'>Correo Electronic: ". $row['email']." <h5>";
-                                            echo "<h5 class='text-white-50 text-uppercase mb-3'>Nom: ". $row['nom_usuari']. " ". $row['cognom']. " <h5>";
+                                            echo "<h5 class='text-white-50 text-uppercase mb-3'>Nom: ". $row['nom']. " ". $row['cognom']. " <h5>";
                                             echo "<h5 class='text-white-50 text-uppercase mb-3'>Adeça: ". $row['adreca']. " <h5>";
 
                                             echo "<p class='text-white-50 mb-4'>Vos modificar alguna dada?? </p>";
