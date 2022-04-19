@@ -103,10 +103,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                             echo"<div class='form-outline form-white mb-4'>
                                                 <input type='password' name='contrassenya' placeholder='Nova Password'  id='contrassenya' class='form-control form-control-lg'  />
                                             </div>";
-                                        
-
-                                          
-                                            
+                                         
                                         }
                                         else
                                         {
@@ -114,18 +111,6 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                         }
 										
 										?>
-								
-                           
-                                
-
-
-
-
-                                 
-
-                           
-                               
-                        
                                
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Enviar</button> 
                             </form>
