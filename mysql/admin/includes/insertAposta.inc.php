@@ -3,14 +3,14 @@ session_start();
 
 
 if(!isset($_SESSION['usuariAdmin']))
-	{
+{
 		echo '<script> 
 		alert("No ets administrador");
 		window.location.href="../../login/";  </script>' ; 
 		session_destroy();
 		#header("Location ../../home.html"); 
  
-	}
+}
 #REQUIERE EL CONEXIO PHP   
 require("../../../assets/php/connexioBD.php");
 
