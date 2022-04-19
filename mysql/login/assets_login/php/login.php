@@ -47,56 +47,65 @@ else
     
     if($rows >= 0)
     {
-
-      if($rows['isAdmin'] == 1)
-      {
-        $_SESSION['usuariAdmin']= $rows['email'];
-        
-        if(password_verify($password, $rows["contrassenya"]))
-        {
-            if(isset($_SESSION['usuariAdmin']))
-            {
-              # echo "hola admin";
-                header("Location: ../../../admin/");
-            }
-              
-
-        }
-        else
-        {
-          
-          // password admin incorrecte
-              
-             header("Location: ../../../login");
-             session_destroy();
-        }
-     
-      }
-      else
-      {
-        
-        $_SESSION['usuari']= $rows['email'];
-        if(password_verify($password, $rows["contrassenya"]))
+        // si ets admin
+        if($rows['isAdmin'] == 1)
         {
          
-            // USUARI
-            if(isset($_SESSION['usuari']))
-            {
-              #  echo "hola usuari";
-              header("Location: ../../../user/");
+          
+            if(password_verify($password, $rows["contrassenya"])) 
+            { 
+              // COMPROVO QUE LA SI ESTA BE
+
+
+               $_SESSION['usuariAdmin']= $rows['email'];     // creo una varialbe de sessio amb el correu d'admin
+               header("Location: ../../../admin/");
+                /*if(isset($_SESSION['usuariAdmin'])) // COMPROVO SI LA VARIABLE DE SESIO ESTA CORRETE
+                {
+
+                    
+                }*/
+                  
+
             }
+            else
+            {
+              
+              // password admin incorrecte
+                  
+                header("Location: ../../../login");
+                session_destroy();
+            }
+      
+        }
+        // SINO SI ES USUARI
+        else if($rows['isAdmin'] == 0)
+        {
+          
+              if(password_verify($password, $rows["contrassenya"]))
+              {
+              
+                  // USUARI
+
+                  $_SESSION['usuari']= $rows['email'];
+                  header("Location: ../../../user/");
+                
+              }
+              else
+              {
+                // fora de aqui si no esta be la contrassenya
+                header("Location: ../../../login");
+                session_destroy();
+                
+              }
           
         }
+
         else
         {
-          // fora de aqui si no esta be la contrassenya
           header("Location: ../../../login");
           session_destroy();
-          
         }
-        
-      }
-    
+      
     }
     else
     {

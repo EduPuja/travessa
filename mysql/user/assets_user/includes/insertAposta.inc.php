@@ -28,7 +28,7 @@ echo $partit.",";
 echo $rondesLocal.",";
 echo $rondesVisitant.",";
 echo $calersAposta;*/
-$insert = "INSERT INTO aposta (id_usuari,id_partit,res_Local,res_Visitant,dinersApostats) VALUES ('$_SESSION[usuariAdmin]',$partit,$rondesLocal,$rondesVisitant,$calersAposta)";
+$insert = "INSERT INTO aposta (id_usuari,id_partit,res_Local,res_Visitant,dinersApostats) VALUES ('$_SESSION[usuari]',$partit,$rondesLocal,$rondesVisitant,$calersAposta)";
 $resultatConsulta = mysqli_query($connexio,$insert);
        
 if($resultatConsulta)

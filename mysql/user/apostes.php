@@ -1,9 +1,10 @@
 <?php
 session_start();
+#echo $_SESSION['usuari'];
 if(!isset($_SESSION['usuari']))
 {
   echo '<script> 
-  alert("No ets admin! FORA DE AQUI NO ET VOLEM  ");
+  alert("No estas registrat ");
   window.location.href="../login/";  </script>' ; 
 }
 

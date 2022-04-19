@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-
+#echo $_SESSION['usuari'];
 if(!isset($_SESSION['usuari']))
 	{
 		echo '<script> 
@@ -42,7 +42,7 @@ if(!isset($_SESSION['usuari']))
 					<li><a href="/mysql/user/perfil.php" class="nav-link px-2 text-white">Perfil</a></li>
 
 					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
-					<<button type ="button" class="btn btn-outline-warning" onclick=<?php $_SESSION['usuari']; $_SESSION['usuariAdmin']; session_destroy(); header("Location ../mysql/home.html"); ?>>LogOut</button>
+				<button type ="button" class="btn btn-outline-warning" onclick=<?php session_destroy();  ?>>LogOut</button>
 					
 				
 					
