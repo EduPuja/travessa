@@ -68,37 +68,21 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                 <h1 class="fw mb-2 text-uppercase">Perfil Usuari <?php echo"@". $_SESSION['usuari']; echo $_SESSION['usuariAdmin'];?></h3>
                                 
                                 <p class="text-white-50 mb-5">Aqui esta tota la teva informacio</p>
-                                <table class="text-center text-white table table-bordered">
-									<thead>
-										<tr class="text-center">
-											<th class="text-center">Correu</th>
-											<th class="text-center">Nom</th>
-											<th class="text-center">Cognmom</th>
-                                            <th class="text-center">Adreça</th>
-                                            <th class="text-center">Cartera</th>
-										</tr>
-									</thead>
-									<br>
-									<br>
-									<tbody>
+                               <form>
 									<?php
 										require("../../assets/php/connexioBD.php");
-										$query = "SELECT email,nom,cognom,adreca,cartera FROM usuari WHERE nom ='$_SESSION[usuari]' OR nom= '$_SESSION[usuariAdmin]'";
+                                        #$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
+										$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
 										$result = mysqli_query($connexio,$query);
 
                                         if($result)
-                                        {
-                                            echo "hola";
+                                        {   
+                                            $row = mysqli_fetch_assoc($result);
+                                            #echo $row['email'];
+                                            #echo "hola"; 
+                                           
 
-                                            /*while($row = mysqli_fetch_assoc($result))
-										    {	
-
-											
-										        echo "<tr><th class='text-center'>".$row['email']."  ".$row['nom']."</th><th class='text-center'> ".$row['congom']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button'>Apostar</button></th>";
-										
-											
-											
-										    }*/
+                                          
                                             
                                         }
                                         else{
@@ -106,10 +90,9 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                         }
 										
 										?>
-									</tbody>
-								</table>
+								
                            
-
+                                    </form>
 							</div>
                         </div>
                     </div>
