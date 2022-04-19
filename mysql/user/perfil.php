@@ -74,8 +74,9 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 										require("../../assets/php/connexioBD.php");
                                         #$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
 										#$nom="SELECT nom FROM usuari";
-                                        $query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
-										$result = mysqli_query($connexio,$query);
+                                        #$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
+                                        $novaConsulta ="SELECT email,nom,cognom,adreca,cartera, FROM usuari WHERE email ='$_SESSION[usuariAdmin]'";
+                                        $result = mysqli_query($connexio,$novaConsulta);
 
                                         if($result)
                                         {   
