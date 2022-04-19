@@ -98,6 +98,10 @@ else
           }
 
        }
+       else
+       {
+          header("Location: /mysql/login/");
+       }
      
     }
     
