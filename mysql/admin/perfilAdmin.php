@@ -47,7 +47,7 @@ if(!isset($_SESSION['usuariAdmin']))
 					<li><a href="/mysql/admin/userAdmin.php" class="nav-link px-2 text-white ">Info Partits</a></li>
                     
 					<li><a href="perfilAdmin.php" class="nav-link px-2 active text-danger" >Perfil Admin</a></li>
-
+                    <li><a href="includes/logout.inc.php" class="nav-link px-2 text-warning" >LogOut</a></li>
 					
 				
 					
