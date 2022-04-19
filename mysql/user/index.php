@@ -8,7 +8,7 @@ if(!isset($_SESSION['usuari']))
 		echo '<script> 
 		alert("Necessites registrarte abans de poder entrar ");
 		window.location.href="../login/";  </script>' ; 
-		session_destroy();
+		session_stop($_SESSION['usuari']);
 		#header("Location ../../home.html"); 
  
 	}
@@ -42,7 +42,7 @@ if(!isset($_SESSION['usuari']))
 					<li><a href="/mysql/user/perfil.php" class="nav-link px-2 text-white">Perfil</a></li>
 
 					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
-				<button type ="button" class="btn btn-outline-warning" onclick="  location.href = '/mysql/'"<?php session_destroy();  ?>>LogOut</button>
+			<!--	<button type ="button" class="btn btn-outline-warning" onclick="  location.href = '/mysql/'"<?php #session_stop($_SESSION['usuari']);  ?>>LogOut</button>-->
 					
 				
 					

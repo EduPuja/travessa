@@ -16,7 +16,7 @@ if(!isset($_SESSION['usuariAdmin']))
 ?>
 <html lang="es">
 <head>
-  <title>Usuari</title>
+  <title>Usuari Admin</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@ if(!isset($_SESSION['usuariAdmin']))
 					<li><a href="/mysql/admin/userAdmin.php" class="nav-link px-2 text-danger">Info Partits</a></li>
 					<li><a href="perfilAdmin.php" class="nav-link px-2 text-white">Perfil Admin</a></li>
                     <button type="button"  class="btn btn-warning" onclick="  location.href = '/mysql/admin'">MENU ADMINISTRADOR</button>
-					<button type ="button" class="btn btn-outline-warning" onclick="  location.href = '/mysql/'"<?php session_destroy();  ?>>LogOut</button>
+					<!--<button type ="button" class="btn btn-outline-warning" onclick="  location.href = '/mysql/'"<?php #session_destroy();  ?>>LogOut</button>-->
          		</ul>
 			</div>
 		</div>
