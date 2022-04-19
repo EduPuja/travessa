@@ -65,7 +65,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                     <div class="card bg-dark text-white" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
                             <div class="mb-md-4 mt-md-4 pb-5">
-                                <h1 class="fw mb-2 text-uppercase">Perfil Usuari <?php echo"@". $_SESSION['usuari']; echo $_SESSION['usuariAdmin'];?></h3>
+                                <h1 class="fw mb-2 text-uppercase">Perfil Usuari</h3>
                                 
                                 <p class="text-white-50 mb-3">Aqui esta tota la teva informacio</p>
                                 
@@ -84,7 +84,10 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                             echo "<h5 class='text-white-50 text-uppercase mb-3'>Adeça: ". $row['adreca']. " <h5>";
 
                                             echo "<p class='text-white-50 mb-4'>Vos modificar alguna dada?? </p>";
-
+                                            #correo
+                                            echo"<div class='form-outline form-white mb-4'>
+                                            <input type='email' name='email' placeholder='Correu' value='$row[email]' id='nom' class='form-control form-control-lg'  />
+                                             </div>";
                                             #nom
                                             echo"<div class='form-outline form-white mb-4'>
                                                   <input type='text' name='nom' placeholder='New Name'  id='nom' class='form-control form-control-lg'  />
