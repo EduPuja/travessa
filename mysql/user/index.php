@@ -33,7 +33,7 @@ if(!isset($_SESSION['usuari']))
 		<!--Barra de navegacio-->
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-left:300px; margin-right:300px; border-radius:1rem;">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/mysql/user/">
+			<a class="navbar-brand" href="/mysql/admin/">
 			<img src="../../assets/img/icons/footway.ico" alt="LogoFootway" style="width:40px;" class="rounded-pill"> FootWay
 			</a>
 			<div>
