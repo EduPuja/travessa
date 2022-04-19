@@ -50,7 +50,7 @@ else
 
       if($rows['isAdmin'] == 1)
       {
-        $_SESSION['usuariAdmin']= $rows['nom'];
+        $_SESSION['usuariAdmin']= $rows['email'];
         
         if(password_verify($password, $rows["contrassenya"]))
         {
@@ -75,7 +75,7 @@ else
       else
       {
         
-        $_SESSION['usuari']= $rows['nom'];
+        $_SESSION['usuari']= $rows['email'];
         if(password_verify($password, $rows["contrassenya"]))
         {
          
