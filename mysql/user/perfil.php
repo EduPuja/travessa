@@ -73,7 +73,8 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 									<?php
 										require("../../assets/php/connexioBD.php");
                                         #$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
-										$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
+										#$nom="SELECT nom FROM usuari";
+                                        $query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
 										$result = mysqli_query($connexio,$query);
 
                                         if($result)
