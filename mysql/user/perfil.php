@@ -86,7 +86,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                             echo "<p class='text-white-50 mb-4'>Vos modificar alguna dada?? </p>";
                                             #correo
                                             echo"<div class='form-outline form-white mb-4'>
-                                            <input type='email' name='email' placeholder='Correu' value='$row[email]' id='nom' class='form-control form-control-lg'  />
+                                            <input type='hidden' name='email' placeholder='Correu' value='$row[email]' id='nom' class='form-control form-control-lg'  />
                                              </div>";
                                             #nom
                                             echo"<div class='form-outline form-white mb-4'>
