@@ -44,7 +44,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li><a href="myql/user/ class="nav-link px-2 text-white ">Info Partits</a></li>
+					<li><a href="/mysql/user/" class="nav-link px-2 text-white ">Info Partits</a></li>
 					<li><a href="#" class="nav-link px-2 text-white ">Apostes</a></li>
 					<li><a href="perfil.php" class="nav-link px-2 active text-danger" >Perfil</a></li>
 
