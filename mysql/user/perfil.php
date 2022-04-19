@@ -12,6 +12,13 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
  
 	}
 
+
+    
+
+
+   
+
+
 ?>
 <html lang="es">
 <head>
@@ -59,7 +66,42 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                         <div class="card-body p-5 text-center">
                             <div class="mb-md-4 mt-md-4 pb-5">
                                 <h1 class="fw mb-2 text-uppercase">Perfil Usuari <?php echo"@". $_SESSION['usuari']; echo $_SESSION['usuariAdmin'];?></h3>
-							
+                                
+                                <p class="text-white-50 mb-5">Aqui esta tota la teva informacio</p>
+                                <form class="from-control" action="assets_login/php/login.php" method="post">
+                                    <?php
+                                      
+                                        require("../../assets/php/connexioBD.php");
+                                            
+
+                                        $query = "SELECT * FROM usuari WHERE nom ='$_SESSION[usuari]'";
+                                    
+                                        $resutl = mysqli_query($connexio,$query);
+                                        if(result)
+                                        {
+                                            echo "nice";
+                                        }
+                                        else
+                                        {
+                                            echo "bad";
+                                        }
+
+
+                                    ?>
+
+
+                                   <div class="form-outline form-white mb-4">
+                                        <input type="email" name="email" id="email" value ="hola" class="form-control form-control-lg" placeholder="Email" readonly/>
+                                    </div>
+                    
+                                    <div class="form-outline form-white mb-4">
+                                    <input type="password" name="contrassenya" id="contrassenya" class="form-control form-control-lg" placeholder="Password" required/>
+                                    </div>
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button> 
+                                </form>
+                                   
+                           
+
 							</div>
                         </div>
                     </div>
