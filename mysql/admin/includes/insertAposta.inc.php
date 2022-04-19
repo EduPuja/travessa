@@ -2,17 +2,17 @@
 session_start();
 
 
-if(!isset($_SESSION['usuari']))
+if(!isset($_SESSION['usuariAdmin']))
 	{
 		echo '<script> 
 		alert("No ets administrador");
-		window.location.href="../../../login/";  </script>' ; 
+		window.location.href="../../login/";  </script>' ; 
 		session_destroy();
 		#header("Location ../../home.html"); 
  
 	}
 #REQUIERE EL CONEXIO PHP   
-require("../../../../assets/php/connexioBD.php");
+require("../../../assets/php/connexioBD.php");
 
 $partit = $_POST['partit'];
 $rondesLocal = $_POST['rondesLocal'];

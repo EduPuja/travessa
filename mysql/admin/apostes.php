@@ -38,11 +38,11 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                     <?php 
                                         require("../../assets/php/connexioBD.php");
                                         $partit = $_POST['partitApostar']; 
-                                        $query = "SELECT p.Id_partit as id_partit, e.nom as local, e1.nom as visitant from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant WHERE Id_partit = $partit";
+                                        $query = "SELECT p.Id_partit as id_partit,e.nom as local, e1.nom as visitant from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant WHERE Id_partit = $partit";
 										$result = mysqli_query($connexio,$query);
 										if($row = mysqli_fetch_assoc($result))
                                         {
-                                            echo "<form class='from-control' action='assets_user/includes/insertAposta.inc.php' method='post'>
+                                            echo "<form class='from-control' action='includes/insertAposta.inc.php' method='post'>
                                                         <div class='form-outline form-white mb-4'>
                                                             <p>".$row['local']." vs ".$row['visitant']."</p>
                                                             <input type='hidden' name='partit' id='partit' value = '".$row['id_partit']."' class='form-control' form-control-sm text-center' required />

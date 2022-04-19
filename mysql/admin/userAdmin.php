@@ -38,12 +38,9 @@ if(!isset($_SESSION['usuariAdmin']))
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li><a href="/mysql/user/" class="nav-link px-2 text-danger">Info Partits</a></li>
-					<li><a href="/mysql/user/perfil.php" class="nav-link px-2 text-white">Perfil</a></li>
+					<li><a href="/mysql/admin/userAdmin.php" class="nav-link px-2 text-danger">Info Partits</a></li>
+					<li><a href="perfilAdmin.php" class="nav-link px-2 text-white">Perfil Admin</a></li>
                     <button type="button"  class="btn btn-warning" onclick="  location.href = '/mysql/admin'">MENU ADMINISTRADOR</button>
-                    
-				
-					
          		</ul>
 			</div>
 		</div>
@@ -93,7 +90,7 @@ if(!isset($_SESSION['usuariAdmin']))
 									</tbody>
 								</table>
 								<p class="text-white-50 mb-3">Si vos apostar escull una opcio.</p>
-								<form class="from-control" action="../../mysql/user/apostes.php" method="post">
+								<form class="from-control" action="../../mysql/admin/apostes.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <select class="form-control" name="partitApostar" for="partitApostar">
                                             <optgroup class="text-center" label="Partits">
