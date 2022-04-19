@@ -10,19 +10,24 @@
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
     // seleciono tota la taula MENYS LA CARETERA
-    $consulta = "SELECT isAdmin,email,contrassenya,nom,cognom,adreca FROM usuari WHERE email = '$correu'";
+    $consulta = "SELECT email,nom,cognom,adreca FROM usuari WHERE email = '$correu'";
 
     $query = mysqli_query($connexio, $consulta);
   
-    $rows = mysqli_fetch_assoc($query);
+    $rows = mysqli_num_rows($query);
     
 
-    if($rows >= 0)
+    if($rows <= 0)
     {
-
-      if($rows['isAdmin'] == 1)
-      {
-          $insert = "ALTER TABLE usuari "
-      }
+        $update = "UPDATE `usuari` SET `nom`= $nom,`cognom`=$cognom ,`contrassenya`= $hash WHERE `correu` = $correu ";
+        $exito = mysqli_query($connexio,$update);
+        if($exito)
+        {
+            echo "SE CANVIAT";
+        }
+        else
+        {
+            echo "nope";
+        }
     }
 ?>
