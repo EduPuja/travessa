@@ -35,7 +35,8 @@ if(!isset($_SESSION['usuariAdmin']))
                         <div class="card-body p-5 text-center">
             
                             <div class="mb-md-4 mt-md-4 pb-5">
-                                <h1  class="fw-bold mb-2 text-uppercase"> BENVINGUT <?php echo $_SESSION['usuariAdmin']; ?> </h1>
+                                <h1  class="fw-bold mb-2 text-uppercase"> BENVINGUT  </h1>
+                                <h3 class="fw mb-2 text-lowercase"><?php echo $_SESSION['usuariAdmin']; ?></h3>
                                 <h3 class="fw mb-2 text-uppercase">MENU ADMINISTRADOR</h3>
                                 <p class="text-white-50 mb-5">Escull l'opcio que vulgis.</p>
                                 <button type="button"  class="btn btn-primary" onclick="  location.href = 'gestioPartits/'">GESTIO PARTITS</button><br><br>
