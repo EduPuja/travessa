@@ -12,6 +12,13 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
  
 	}
 
+
+    
+
+
+   
+
+
 ?>
 <html lang="es">
 <head>
@@ -59,7 +66,33 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                         <div class="card-body p-5 text-center">
                             <div class="mb-md-4 mt-md-4 pb-5">
                                 <h1 class="fw mb-2 text-uppercase">Perfil Usuari <?php echo"@". $_SESSION['usuari']; echo $_SESSION['usuariAdmin'];?></h3>
-							
+                                
+                                <p class="text-white-50 mb-5">Aqui esta tota la teva informacio</p>
+                               <form>
+									<?php
+										require("../../assets/php/connexioBD.php");
+                                        #$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
+										$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
+										$result = mysqli_query($connexio,$query);
+
+                                        if($result)
+                                        {   
+                                            $row = mysqli_fetch_assoc($result);
+                                            #echo $row['email'];
+                                            #echo "hola"; 
+                                           
+
+                                          
+                                            
+                                        }
+                                        else{
+                                           echo " adeu"; 
+                                        }
+										
+										?>
+								
+                           
+                                    </form>
 							</div>
                         </div>
                     </div>
