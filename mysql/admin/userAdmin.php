@@ -41,6 +41,7 @@ if(!isset($_SESSION['usuariAdmin']))
 					<li><a href="/mysql/admin/userAdmin.php" class="nav-link px-2 text-danger">Info Partits</a></li>
 					<li><a href="perfilAdmin.php" class="nav-link px-2 text-white">Perfil Admin</a></li>
                     <button type="button"  class="btn btn-warning" onclick="  location.href = '/mysql/admin'">MENU ADMINISTRADOR</button>
+					<button type ="button" class="btn btn-outline-warning" onclick="  location.href = '/mysql/'"<?php session_destroy();  ?>>LogOut</button>
          		</ul>
 			</div>
 		</div>
