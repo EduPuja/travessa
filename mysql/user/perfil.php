@@ -2,7 +2,7 @@
 session_start();
 
 
-if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
+if(!isset($_SESSION['usuari']))
 	{
 		echo '<script> 
 		alert("Necessites registrarte abans de poder entrar ");
