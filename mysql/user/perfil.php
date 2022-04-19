@@ -68,38 +68,38 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                 <h1 class="fw mb-2 text-uppercase">Perfil Usuari <?php echo"@". $_SESSION['usuari']; echo $_SESSION['usuariAdmin'];?></h3>
                                 
                                 <p class="text-white-50 mb-5">Aqui esta tota la teva informacio</p>
-                                <form class="from-control" action="assets_login/php/login.php" method="post">
-                                    <?php
-                                      
-                                        require("../../assets/php/connexioBD.php");
-                                            
-
-                                        $query = "SELECT * FROM usuari WHERE nom ='$_SESSION[usuari]'";
-                                    
-                                        $resutl = mysqli_query($connexio,$query);
-                                        if(result)
-                                        {
-                                            echo "nice";
-                                        }
-                                        else
-                                        {
-                                            echo "bad";
-                                        }
-
-
-                                    ?>
-
-
-                                   <div class="form-outline form-white mb-4">
-                                        <input type="email" name="email" id="email" value ="hola" class="form-control form-control-lg" placeholder="Email" readonly/>
-                                    </div>
-                    
-                                    <div class="form-outline form-white mb-4">
-                                    <input type="password" name="contrassenya" id="contrassenya" class="form-control form-control-lg" placeholder="Password" required/>
-                                    </div>
-                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button> 
-                                </form>
-                                   
+                                <table class="text-center text-white table table-bordered">
+									<thead>
+										<tr class="text-center">
+											<th class="text-center">Correu</th>
+											<th class="text-center">Nom</th>
+											<th class="text-center">Cognmom</th>
+                                            <th class="text-center">Adreça</th>
+                                            <th class="text-center">Cartera</th>
+										</tr>
+									</thead>
+									<br>
+									<br>
+									<tbody>
+									<?php
+										require("../../assets/php/connexioBD.php");
+										$query = "SELECT email,nom,cognom,adreca,cartera FROM usuari WHERE nom =$_SESSION[usuari] OR nom= $_SESSION[usuariAdmin]";
+										$result = mysqli_query($connexio,$query);
+										while($row = mysqli_fetch_assoc($result))
+										{	
+											
+											if($row['result']== 'Activada')
+											{
+												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th> <th class='text-center'><button class='btn btn-sm btn-outline-warning me-2 active' type='button'>Apostar</button></th>";
+											}
+											else
+											{
+												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center text-danger'> ".$row['result']." </th> <th class='text-center'></th>";
+											}
+										}
+										?>
+									</tbody>
+								</table>
                            
 
 							</div>
