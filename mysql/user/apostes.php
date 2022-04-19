@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
+if(!isset($_SESSION['usuari']))
 {
   echo '<script> 
   alert("No ets admin! FORA DE AQUI NO ET VOLEM  ");
