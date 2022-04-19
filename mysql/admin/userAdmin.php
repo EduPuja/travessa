@@ -38,10 +38,11 @@ if(!isset($_SESSION['usuariAdmin']))
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li><a href="/mysql/admin/userAdmin.php" class="nav-link px-2 text-danger">Info Partits</a></li>
+					<li><a href="/mysql/admin/userAdmin.php" class="nav-link px-2 active text-danger">Info Partits</a></li>
 					<li><a href="perfilAdmin.php" class="nav-link px-2 text-white">Perfil Admin</a></li>
-                    <button type="button"  class="btn btn-warning" onclick="  location.href = '/mysql/admin'">MENU ADMINISTRADOR</button>
-					<!--<button type ="button" class="btn btn-outline-warning" onclick="  location.href = '/mysql/'"<?php #session_destroy();  ?>>LogOut</button>-->
+					<li><a href="includes/logout.inc.php" class="nav-link px-2 text-warning" >LogOut</a></li>
+					<button type="button"  class="btn btn-warning" onclick="  location.href = '/mysql/admin'">MENU ADMINISTRADOR</button>
+					
          		</ul>
 			</div>
 		</div>
