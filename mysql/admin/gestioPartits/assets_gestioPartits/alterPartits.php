@@ -18,11 +18,12 @@ require("../../../../assets/php/connexioBD.php");
 $partit = $_POST['partitApostar'];
 $rondesLocal = $_POST['rondesLocal'];
 $rondesVisitant = $_POST['rondesVisitant'];
-$update = "UPDATE TABLE 'partit' SET 'res_Local' = '$rondesLocal', 'res_Visitant' = '$rondesVisitant' WHERE 'Id_partit' = '$partit'";
+$update = "UPDATE `partit` SET `res_Local`= $rondesLocal,`res_Visitant`=$rondesVisitant WHERE `Id_partit` = $partit";
 /*echo $partit .",";
 echo $rondesLocal .",";
 echo $rondesVisitant;*/
-$resultatConsulta = mysqli_query($connexio,$upadate);
+
+$resultatConsulta = mysqli_query($connexio,$update);
    
 if($resultatConsulta)
 {
