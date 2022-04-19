@@ -35,11 +35,11 @@ if($resultatConsulta)
 {
     echo '<script> 
     alert("Aposta FETA! ");
-    window.location.href="../userAdmin.php";</script>' ;
+    window.location.href="../../";</script>' ;
 }
 else
 {
     echo '<script> 
     alert("Aposta NO feta...");
-    window.location.href="../userAdmin.php";</script>' ; 
+    window.location.href="../../";</script>' ; 
 }
