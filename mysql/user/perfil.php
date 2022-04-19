@@ -80,7 +80,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                             $row = mysqli_fetch_assoc($result);
                                            
                                             echo" <div class='form-outline form-white mb-4'>
-                                                    <input type='email' value ='$row[email]' id='email' class='form-control form-control-lg'  readonly/>
+                                                    <input type='email' value ='$row[email]' name='email' id='email' class='form-control form-control-lg'  readonly/>
                                                  </div>";
                                             echo"<div class='form-outline form-white mb-4'>
                                                   <input type='text' name='nom' placeholder='New Name'  id='nom' class='form-control form-control-lg'  />
