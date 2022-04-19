@@ -51,20 +51,18 @@ else
         if($rows['isAdmin'] == 1)
         {
          
-          
+            $_SESSION['usuariAdmin']= $rows['email'];     // creo una varialbe de sessio amb el correu d'admin
             if(password_verify($password, $rows["contrassenya"])) 
             { 
               // COMPROVO QUE LA SI ESTA BE
 
-
-               $_SESSION['usuariAdmin']= $rows['email'];     // creo una varialbe de sessio amb el correu d'admin
-               header("Location: ../../../admin/");
-                /*if(isset($_SESSION['usuariAdmin'])) // COMPROVO SI LA VARIABLE DE SESIO ESTA CORRETE
-                {
-
-                    
-                }*/
-                  
+              if(isset($_SESSION['usuariAdmin']))
+              {
+                header("Location: ../../../admin/");
+              }
+              
+             
+               
 
             }
             else
@@ -80,14 +78,15 @@ else
         // SINO SI ES USUARI
         else if($rows['isAdmin'] == 0)
         {
-          
+            $_SESSION['usuari']= $rows['email'];
               if(password_verify($password, $rows["contrassenya"]))
               {
               
                   // USUARI
-
-                  $_SESSION['usuari']= $rows['email'];
-                  header("Location: ../../../user/");
+                  if(isset($_SESSION['usuari']))
+                  {
+                    header("Location: ../../../user/");
+                  }
                 
               }
               else
