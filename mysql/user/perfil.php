@@ -68,7 +68,7 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                 <h1 class="fw mb-2 text-uppercase">Perfil Usuari <?php echo"@". $_SESSION['usuari']; echo $_SESSION['usuariAdmin'];?></h3>
                                 
                                 <p class="text-white-50 mb-5">Aqui esta tota la teva informacio</p>
-                               <form>
+                                <form class="from-control" action="" method="post">
 									<?php
 										require("../../assets/php/connexioBD.php");
                                         #$query = "SELECT email,CASE WHEN isAdmin = 0 AND nom ='$_SESSION[usuari]' THEN nom WHEN isAdmin =1 AND nom='$_SESSION[usuariAdmin]' THEN nom END as nom_usuari,cognom,adreca,cartera FROM usuari";
@@ -78,21 +78,48 @@ if(!isset($_SESSION['usuari']) && !isset($_SESSION['usuariAdmin']))
                                         if($result)
                                         {   
                                             $row = mysqli_fetch_assoc($result);
-                                            #echo $row['email'];
-                                            #echo "hola"; 
                                            
+                                            echo" <div class='form-outline form-white mb-4'>
+                                                    <input type='email' value ='$row[email]' name='email' id='email' class='form-control form-control-lg'  readonly/>
+                                                 </div>";
+                                            echo"<div class='form-outline form-white mb-4'>
+                                                  <input type='text' name='nom' placeholder='New Name'  id='nom' class='form-control form-control-lg'  />
+                                              </div>";
+
+                                            echo"<div class='form-outline form-white mb-4'>
+                                                      <input type='text' name='cognom' placeholder='New Cognom'  id='cognom' class='form-control form-control-lg'  />
+                                                 </div>";
+                                            echo"<div class='form-outline form-white mb-4'>
+                                                 <input type='password' name='contrassenya' placeholder='Nova Password'  id='contrassenya' class='form-control form-control-lg'  />
+                                             </div>";
+                                        
 
                                           
                                             
                                         }
-                                        else{
+                                        else
+                                        {
                                            echo " adeu"; 
                                         }
 										
 										?>
 								
                            
-                                    </form>
+                                
+
+
+
+
+                                 
+
+                           
+                               
+                        
+                               
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Enviar</button> 
+                            </form>
+
+
 							</div>
                         </div>
                     </div>
