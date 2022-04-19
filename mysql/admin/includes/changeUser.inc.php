@@ -4,6 +4,7 @@
     $correu = $_POST['email'];
     $nom = $_POST['nom'];
     $cognom = $_POST['cognom'];
+    $adreca =$_POST['adreca'];
     $password = $_POST['contrassenya'];
 
     // encriptacio password
@@ -13,7 +14,7 @@
     //$consulta = "SELECT email,nom,cognom,adreca FROM usuari WHERE email = '$correu'";
 
     
-   $update = "UPDATE usuari SET nom ='$nom',cognom ='$cognom',contrassenya = '$hash' WHERE email = '$correu'";
+   $update = "UPDATE usuari SET nom ='$nom',cognom ='$cognom',contrassenya = '$hash',adreca ='$adreca' WHERE email = '$correu'";
     $exito = mysqli_query($connexio,$update);
 
         if($exito)
