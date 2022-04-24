@@ -61,6 +61,7 @@ if(!isset($_SESSION['usuari']))
                                                   </form>";
                                         }
                                     ?>
+                                    <button type="button"  class="btn btn-primary" onclick="  location.href = '/mysql/user/'">Anar al menu</button>
                             </div>
                         </div>
                     </div>
