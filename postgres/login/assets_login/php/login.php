@@ -41,68 +41,71 @@ else
     $query = mysqli_query($connexio, $consulta);
     // ens dona el un array 
     $rows = mysqli_fetch_assoc($query);
-    
-   
-    
-    
-    if($rows >= 0)
-    {
-      if($rows['isAdmin'] == 1)
-      {
-        $_SESSION['usuariAdmin']= $rows['nom'];
-        
-        if(password_verify($password, $rows["contrassenya"]))
-        {
-            if(isset($_SESSION['usuariAdmin']))
-            {
-              # echo "hola admin";
-                header("Location: ../../../admin/");
-            }
-              
 
+     
+    if($rows['isAdmin'] == 1)
+    {
+
+         // si ets admin
+      
+   
+      #echo "ets admin";
+      if(password_verify($password,$rows['contrassenya']))
+      {
+        $_SESSION['usuariAdmin'] = $rows['email'];
+        #echo "password admin oka";
+
+        if(isset($_SESSION['usuariAdmin']))
+        {
+          #echo "SESSIO ADMINISTRADOR PTA MADRE";
+          //sessio administrador good
+         
+
+          header("Location: /mysql/admin/");
         }
         else
         {
-          
-          // password admin incorrecte
-              
-             header("Location: ../../../login");
-             session_destroy();
+          #echo"sessio admin shit";
+          session_stop($_SESSION['usuariAdmin']);
+          header("Location: /mysql/login/");
         }
-     
       }
       else
       {
-        
-        $_SESSION['usuari']= $rows['nom'];
-        if(password_verify($password, $rows["contrassenya"]))
-        {
+        header("Location: /mysql/login/");
          
-            // USUARI
-            if(isset($_SESSION['usuari']))
-            {
-              #  echo "hola usuari";
-              header("Location: ../../../user/");
-            }
-          
-        }
-        else
-        {
-          // fora de aqui si no esta be la contrassenya
-          header("Location: ../../../login");
-          session_destroy();
-          
-        }
-        
       }
-    
+
+      
     }
+
     else
     {
+       // ets USUARI
+       if(password_verify($password,$rows['contrassenya']))
+       {
+          $_SESSION['usuari'] = $rows['email'];
+
+          if(isset($_SESSION['usuari']))
+          {
+            header("Location: /mysql/user/");
+          }
+          else
+          {
+            
+            session_stop($_SESSION['usuari']);
+            header("Location: /mysql/login/");
+          }
+
+       }
+       else
+       {
+          header("Location: /mysql/login/");
+       }
      
-      header("Location: ../../../login");
-      session_destroy();
-   
     }
+    
+ 
+   
 }
 ?>

@@ -2,13 +2,13 @@
 <?php
 session_start();
 
-#echo $_SESSION['usuari'];
-if(!isset($_SESSION['usuari']))
+
+if(!isset($_SESSION['usuariAdmin']))
 	{
 		echo '<script> 
-		alert("Necessites registrarte abans de poder entrar ");
+		alert("No ets administrador, FOORAAAA!!!!!");
 		window.location.href="../login/";  </script>' ; 
-		session_stop($_SESSION['usuari']);
+		session_stop($_SESSION['userAdmin']);
 		#header("Location ../../home.html"); 
  
 	}
@@ -16,7 +16,7 @@ if(!isset($_SESSION['usuari']))
 ?>
 <html lang="es">
 <head>
-  <title>Usuari</title>
+  <title>Usuari Admin</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,18 +33,15 @@ if(!isset($_SESSION['usuari']))
 		<!--Barra de navegacio-->
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-left:300px; margin-right:300px; border-radius:1rem;">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/mysql/user/">
+			<a class="navbar-brand" href="/mysql/admin/">
 			<img src="../../assets/img/icons/footway.ico" alt="LogoFootway" style="width:40px;" class="rounded-pill"> FootWay
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li><a href="/mysql/user/" class="nav-link px-2 text-danger">Info Partits</a></li>
-					<li><a href="/mysql/user/perfil.php" class="nav-link px-2 text-white">Perfil</a></li>
-
-					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
-			<!--	<button type ="button" class="btn btn-outline-warning" onclick="  location.href = '/mysql/'"<?php #session_stop($_SESSION['usuari']);  ?>>LogOut</button>-->
-					
-				
+					<li><a href="/mysql/admin/userAdmin.php" class="nav-link px-2 active text-danger">Info Partits</a></li>
+					<li><a href="perfilAdmin.php" class="nav-link px-2 text-white">Perfil Admin</a></li>
+					<li><a href="includes/logout.inc.php" class="nav-link px-2 text-warning" >LogOut</a></li>
+					<button type="button"  class="btn btn-warning" onclick="  location.href = '/mysql/admin'">MENU ADMINISTRADOR</button>
 					
          		</ul>
 			</div>
@@ -95,7 +92,7 @@ if(!isset($_SESSION['usuari']))
 									</tbody>
 								</table>
 								<p class="text-white-50 mb-3">Si vos apostar escull una opcio.</p>
-								<form class="from-control" action="apostes.php" method="post">
+								<form class="from-control" action="../../mysql/admin/apostes.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <select class="form-control" name="partitApostar" for="partitApostar">
                                             <optgroup class="text-center" label="Partits">
