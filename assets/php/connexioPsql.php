@@ -1,26 +1,16 @@
 <?php
-// variables per connectarte a la base de dades
-$serverName = "localhost";
-$database = "btravessa";
 
-// usuari de exemple
-$username = "postgres";
-$password ="Dam2020!"; 
+$connexioPsql = pg_connect("host=localhost port=5432 dbname=btravessa user=postgres passwrod=Dam2020!");
 
-$connexio = psqli_connect($serverName,$username,$password,$database);
-
-
-
-if(!$connexio)
+if(!$connexioPsql)
 {
-    die("Connexio Fail " . psqli_connect_error());
-    
+    pg_close();
+    echo "not good";
 }
 else
 {
-    echo "Connexio succes";
-}
 
-//mysqli_close($connexio);
+    echo nice;
+}
 
 ?>
