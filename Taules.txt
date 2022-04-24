@@ -1,0 +1,60 @@
+CREATE DATABASE btravessa;
+
+
+// TAULA APOSTA
+
+CREATE TABLE aposta(email VARCHAR(100) NOT NULL, 
+id_partit int NOT NULL PRIMARY KEY,
+res_Local int NOT NULL,
+res_Visitant int NOT NULL ,
+dinersApostats int DEFAULT NULL);
+
+
+//TAULA USUARI
+CREATE TABLE usuari (
+  is_admin SMALLINT DEFAULT '0',
+  email varchar(50) NOT NULL PRIMARY KEY,
+  nom varchar(50) NOT NULL,
+  cognom varchar(50) NOT NULL,
+  contrassenya varchar(255) NOT NULL,
+  adreca varchar(50) NOT NULL,
+  cartera int DEFAULT NULL);
+  
+  
+  // contacte
+  
+  
+  CREATE TABLE contacte (
+  idContacte int NOT NULL PRIMARY KEY,
+  nom varchar(25) NOT NULL,
+  email varchar(50) NOT NULL DEFAULT 'NOT NULL',
+  descripcio varchar(255) NOT NULL
+);
+
+
+// EQUIP
+
+CREATE TABLE equip (
+  id_Equip SERIAL NOT NULL PRIMARY KEY,
+  nom varchar(50) NOT NULL,
+  pais varchar(50) NOT NULL
+) ;
+
+
+
+CREATE TABLE jugadors (
+  id_Jugador SERIAL  NOT NULL PRIMARY KEY,
+  nom varchar(50) NOT NULL,
+  dorcal varchar(50) NOT NULL,
+  id_Equip int NOT NULL
+) ;
+
+
+CREATE TABLE partit (
+  id_partit SERIAL NOT NULL PRIMARY KEY,
+  id_EquipLocal int NOT NULL,
+  id_EquipVisitant int NOT NULL,
+  res_Local int DEFAULT NULL,
+  res_Visitant int DEFAULT NULL,
+  benefici int NOT NULL
+) ;
