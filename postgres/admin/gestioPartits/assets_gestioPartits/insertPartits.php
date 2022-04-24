@@ -21,8 +21,8 @@ $equipVisitant = $_POST['equipVisitant'];
 
     
     // variables post els imprimeixo per veure si funcionen
-    echo $equipLocal .",";
-    echo $equipVisitant;
+    /*echo $equipLocal .",";
+    echo $equipVisitant;*/
 
 if($equipLocal != $equipVisitant)
 {

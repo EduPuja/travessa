@@ -37,18 +37,18 @@ if(!isset($_SESSION['usuariAdmin']))
                                 <form class="from-control" action="assets_gestioPartits/alterPartits.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <h5 class="text-white-50 mb-2 text-center">Partits acutuals</h5>
-                                        <select class="form-control" name="partit" for="partit">
+                                        <select class="form-control" name="partitApostar" for="partitApostar">
                                             <optgroup class="text-center" label="Partits">
                                                 <?php 
 
                                                     require("../../../assets/php/connexioBD.php");
-                                                    $query = "SELECT p.Id_partit,e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
+                                                    $query = "SELECT Id_partit,e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
                                                     $result = mysqli_query($connexio,$query);
                                                     while($row = mysqli_fetch_assoc($result))
                                                     {
                                                         if($row['result'] == 'Activada')
                                                         {
-                                                            echo "<option class='text-center' value ='".$row['p.Id_partit']."'>Local= ".$row['local']." vs ".$row['visitant']." = Visitant</option>";
+                                                            echo "<option class='text-center' value =".$row['Id_partit'].">Local= ".$row['local']." vs ".$row['visitant']." = Visitant</option>";
                                                         }
                                                      }
                                                     //echo "<option value='equip'>Escull una opcio</option>";

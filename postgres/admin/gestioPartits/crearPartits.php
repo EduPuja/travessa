@@ -5,6 +5,7 @@ if(!isset($_SESSION['usuariAdmin']))
   echo '<script> 
   alert("No ets admin! FORA DE AQUI NO ET VOLEM  ");
   window.location.href="../../login/";  </script>' ; 
+  session_stop($_SESSION['userAdmin']);
 }
 
 ?>
