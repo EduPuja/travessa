@@ -3,14 +3,14 @@ session_start();
 
 
 if(!isset($_SESSION['usuariAdmin']))
-	{
-		echo '<script> 
-		alert("Necessites registrarte abans de poder entrar ");
-		window.location.href="../login/";  </script>' ; 
-		session_destroy($_SESSION['usuariAdmin']);
-		#header("Location ../../home.html"); 
+{
+	echo '<script> 
+    alert("Necessites registrarte abans de poder entrar ");
+    window.location.href="../login/";  </script>' ; 
+    session_destroy($_SESSION['usuariAdmin']);
+	#header("Location ../../home.html"); 
  
-	}
+}
 
 
     
