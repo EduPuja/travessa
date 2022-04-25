@@ -36,7 +36,7 @@ if(!isset($_SESSION['usuariAdmin']))
                         <div class="card-body p-5 text-center">
             
                             <div class="mb-md-4 mt-md-4 pb-5">
-                                <h1  class="fw-bold mb-2 text-uppercase">MENU GESTIO PARTITS</h1>
+                                <h1  class="fw-bold mb-2 text-uppercase">GESTIO PARTITS</h1>
                                 <h3 class="fw mb-5 text-uppercase">Escull una opcio</h3>
                                 <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'crearPartits.php'">CREAR PARTITS</button><br><br>
                                 <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'modificarPartits.php'">MODIFICAR PARTITS</button><br><br>

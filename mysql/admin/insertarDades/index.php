@@ -32,7 +32,7 @@ if(!isset($_SESSION['usuariAdmin']))
                         <div class="card-body p-5 text-center">
             
                             <div class="mb-md-4 mt-md-4 pb-5">
-                                <h1 class="fw mb-2 text-uppercase">MENU INSERTAR DADES</h1>
+                                <h1 class="fw mb-2 text-uppercase">INSERTAR DADES</h1>
                                 <h4 class="text-white-50 mb-5">Digues quina opcio vols crear</h4>
                                 
                                 <button type="button"  class="btn btn-outline-primary" onclick="  location.href = 'crearPlayer.php'">CREAR PLAYER</button><br><br>
