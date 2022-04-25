@@ -8,7 +8,7 @@ if(!isset($_SESSION['usuariAdmin']))
 		echo '<script> 
 		alert("No ets administrador, FOORAAAA!!!!!");
 		window.location.href="../login/";  </script>' ; 
-		session_stop($_SESSION['userAdmin']);
+		session_destroy($_SESSION['userAdmin']);
 		#header("Location ../../home.html"); 
  
 	}
