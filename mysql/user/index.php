@@ -96,19 +96,28 @@ if(!isset($_SESSION['usuari']))
 									</tbody>
 								</table>
 								<!--<p class="text-white-50 mb-3">Si vos apostar escull una opcio.</p>-->
-								<!--<form class="from-control" action="apostes.php" method="post">
+								<form class="from-control" action="apostes.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <select class="form-control" name="partitApostar" for="partitApostar">
-                                            <optgroup class="text-center">
-                                                
-													
-													
-												
+                                            <optgroup class="text-center" label="Partits">
+											<?php 
+												require("../../assets/php/connexioBD.php");
+												$query = "";
+												$result = mysqli_query($connexio,$query);
+												while($row = mysqli_fetch_assoc($result))
+												{
+													if($row['result'] == 'Activada')
+													{
+														echo "<option class='text-center' value = ".$row['Id_partit'].">Local= ".$row['local']." vs ".$row['visitant']." = Visitant</option>";
+													}
+												}
+												//echo "<option value='equip'>Escull una opcio</option>";
+											?>
                                             </optgroup>
                                         </select>
                                     </div>
                                     <button class="btn btn-outline-warning btn-sm px-4 mb-5" type="submit">Apostar</button>
-                                </form>-->
+                                </form>
 							</div>
                         </div>
                     </div>
