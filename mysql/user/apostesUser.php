@@ -7,7 +7,7 @@ if(!isset($_SESSION['usuari']))
 		echo '<script> 
 		alert("Necessites registrarte abans de poder entrar ");
 		window.location.href="../login/";  </script>' ; 
-		session_destroy();
+		session_destroy($_SESSION['usuari']);
 		#header("Location ../../home.html"); 
  
 	}
@@ -44,9 +44,9 @@ if(!isset($_SESSION['usuari']))
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/mysql/user/apostesUser.php" class="nav-link px-2 text-danger">My Apostes</a></li>
-					<li><a href="/mysql/user/" class="nav-link px-2 text-white ">Info Partits</a></li>
-					<li><a href="perfil.php" class="nav-link px-2 active text-danger" >Perfil</a></li>
+                    <li><a href="/mysql/user/apostesUser.php" class="nav-link text-danger active ">My Apostes</a></li>
+					<li><a href="/mysql/user/" class="nav-link px-2 text-white">Info Partits</a></li>
+					<li><a href="perfil.php" class="nav-link px-2 text-white" >Perfil</a></li>
          		</ul>
 			</div>
 		</div>
