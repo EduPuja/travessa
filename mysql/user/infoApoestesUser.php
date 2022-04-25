@@ -43,7 +43,7 @@ if(!isset($_SESSION['usuari']))
                     
 					<li><a href="/mysql/user/" class="nav-link px-2 text-white">Inici</a></li>
                     <li><a href="/mysql/user/infoApoestesUser.php" class="nav-link px-2 text-danger active">Info Apost</a></li>
-                    <li><a href="/mysql/user/apostes.php" class="nav-link px-2 text-white">Apostar</a></li> 
+                   
 					<li><a href="perfil.php" class="nav-link px-2 active text-white" >Perfil</a></li>
                  
 					
