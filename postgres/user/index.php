@@ -8,7 +8,7 @@ if(!isset($_SESSION['usuari']))
 		echo '<script> 
 		alert("Necessites registrarte abans de poder entrar ");
 		window.location.href="../login/";  </script>' ; 
-		session_stop($_SESSION['usuari']);
+		session_destroy($_SESSION['usuari']);
 		#header("Location ../../home.html"); 
  
 	}
@@ -31,6 +31,7 @@ if(!isset($_SESSION['usuari']))
 </head>
 <body class="gradient-custom">
 		<!--Barra de navegacio-->
+
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-left:300px; margin-right:300px; border-radius:1rem;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/mysql/user/">
@@ -38,11 +39,13 @@ if(!isset($_SESSION['usuari']))
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li><a href="/mysql/user/apostesUser.php" class="nav-link px-2 text-danger">My Apostes</a></li>
-					<li><a href="/mysql/user/" class="nav-link px-2 text-danger">Info Partits</a></li>
-					<li><a href="/mysql/user/perfil.php" class="nav-link px-2 text-white">Perfil</a></li>
-					<!-- Esto funciona pero hay que recargar la pagina i no es plan -->
-			<!--	<button type ="button" class="btn btn-outline-warning" onclick="  location.href = '/mysql/'"<?php #session_stop($_SESSION['usuari']);  ?>>LogOut</button>-->
+                    
+					<li><a href="/mysql/user/" class="nav-link px-2 text-danger active">Inici</a></li>
+                    <li><a href="/mysql/user/infoApoestesUser.php" class="nav-link px-2 text-white">Info Apost</a></li>
+					<li><a href="perfil.php" class="nav-link px-2 active text-white" >Perfil</a></li>
+	
+					<!--logout usuari-->
+					<button type="button"  class="btn btn-warning" onclick="  location.href = 'assets_user/includes/logout.inc.php'">Log out</button>
 					
          		</ul>
 			</div>
@@ -76,44 +79,41 @@ if(!isset($_SESSION['usuari']))
 										$result = mysqli_query($connexio,$query);
 										while($row = mysqli_fetch_assoc($result))
 										{	
-											#echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th>";
+										
 											if($row['result']== 'Activada')
 											{
-												$partit = $row['local'] ." vs ". $row['visitant'];
-												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th>";
-													
+												
+												# echo per imprimir els resultats a la taula aquest es per quant esta activada
+												echo "<tr><th class =text-center> $row[local] VS $row[visitant] </th><th class=text-success> $row[result]</th>";
 											}
 											else
 											{
-												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center text-danger'> ".$row['result']." </th> <th class='text-center'></th>";
+												# echo per imprimir els resultats a la taula aquest es per quant esta DESActivada
+												echo "<tr><th class =text-center> $row[local] VS $row[visitant] </th><th class=text-danger> $row[result]</th>";
 											}
 										}
+										mysqli_close($connexio);
 										?>
 									</tbody>
 								</table>
-								<p class="text-white-50 mb-3">Si vos apostar escull una opcio.</p>
+								<!--<p class="text-white-50 mb-3">Si vos apostar escull una opcio.</p>-->
 								<form class="from-control" action="apostes.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <select class="form-control" name="partitApostar" for="partitApostar">
                                             <optgroup class="text-center" label="Partits">
-                                                <?php 
-                                                    $query = "SELECT p.Id_partit, e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
-
-                                                    $result = mysqli_query($connexio,$query);
-                                                    while($row = mysqli_fetch_assoc($result))
-                                                    {
-                                                        if($row['result'] == 'Activada')
-                                                        {
-															$query2 = "SELECT e.nom as local, e1.nom as visitant from partit p INNER JOIN equip e on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant left join aposta a on p.Id_partit = a.id_partit WHERE a.id_usuari = '$_SESSION[usuari]'";
-															$result2 = mysqli_fetch_assoc($connexio,$query2);
-															if($row2 = mysqli_num_rows() >= 0)
-															{
-																echo "<option class='text-center'>".$row2['']." vs ".$row2['evisitant']."</option>";
-															}
-                                                        }
-                                                     }
-                                                    //echo "<option value='equip'>Escull una opcio</option>";
-                                                ?>
+											<?php 
+												require("../../assets/php/connexioBD.php");
+												$query = "SELECT Id_partit,e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
+                                                $result = mysqli_query($connexio,$query);
+												while($row = mysqli_fetch_assoc($result))
+												{
+													if($row['result'] == 'Activada')
+													{
+														echo "<option class='text-center' value = ".$row['Id_partit'].">Local= ".$row['local']." vs ".$row['visitant']." = Visitant</option>";
+													}
+												}
+												//echo "<option value='equip'>Escull una opcio</option>";
+											?>
                                             </optgroup>
                                         </select>
                                     </div>

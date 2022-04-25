@@ -7,22 +7,17 @@ if(!isset($_SESSION['usuari']))
 		echo '<script> 
 		alert("Necessites registrarte abans de poder entrar ");
 		window.location.href="../login/";  </script>' ; 
-		session_destroy();
+		session_destroy($_SESSION['usuari']);
 		#header("Location ../../home.html"); 
  
 	}
 
 
-    
-
-
-   
-
 
 ?>
 <html lang="es">
 <head>
-  <title>Perfil</title>
+  <title>Apostes Usuari</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +31,8 @@ if(!isset($_SESSION['usuari']))
 
 </head>
 <body class="gradient-custom">
-		<!--Barra de navegacio-->
+	<!--Barra de navegacio-->
+
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-left:300px; margin-right:300px; border-radius:1rem;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/mysql/user/">
@@ -44,9 +40,14 @@ if(!isset($_SESSION['usuari']))
 			</a>
 			<div>
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/mysql/user/apostesUser.php" class="nav-link px-2 text-danger">My Apostes</a></li>
-					<li><a href="/mysql/user/" class="nav-link px-2 text-white ">Info Partits</a></li>
-					<li><a href="perfil.php" class="nav-link px-2 active text-danger" >Perfil</a></li>
+                    
+					<li><a href="/mysql/user/" class="nav-link px-2 text-white">Inici</a></li>
+                    <li><a href="/mysql/user/infoApoestesUser.php" class="nav-link px-2 text-danger active">Info Apost</a></li>
+                   	<li><a href="perfil.php" class="nav-link px-2 active text-white" >Perfil</a></li>
+						<!--logout usuari-->
+						<button type="button"  class="btn btn-warning" onclick="  location.href = 'assets_user/includes/logout.inc.php'">Log out</button>
+                 
+					
          		</ul>
 			</div>
 		</div>

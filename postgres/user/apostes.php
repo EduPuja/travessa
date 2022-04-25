@@ -23,8 +23,9 @@ if(!isset($_SESSION['usuari']))
     <link href="../../assets/css/main.css" rel="stylesheet" type="text/css">
     
 </head>
-    <body class="vh-300 gradient-custom">
-        <!--Comentario de index admin-->
+    <body class="gradient-custom">
+   	
+
         <br>
         <br>
         <br>
