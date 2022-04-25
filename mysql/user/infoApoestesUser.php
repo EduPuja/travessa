@@ -13,11 +13,6 @@ if(!isset($_SESSION['usuari']))
 	}
 
 
-    
-
-
-   
-
 
 ?>
 <html lang="es">
