@@ -78,43 +78,37 @@ if(!isset($_SESSION['usuari']))
 										$result = mysqli_query($connexio,$query);
 										while($row = mysqli_fetch_assoc($result))
 										{	
-											#echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th>";
+										
 											if($row['result']== 'Activada')
 											{
-												$partit = $row['local'] ." vs ". $row['visitant'];
-												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center'> ".$row['result']." </th>";
-													
+												
+												# echo per imprimir els resultats a la taula aquest es per quant esta activada
+												echo "<tr><th class =text-center> $row[local] VS $row[visitant] </th><th class=text-success> $row[result]</th>";
 											}
 											else
 											{
-												echo "<tr><th class='text-center'>".$row['local']." vs ".$row['visitant']."</th><th class='text-center text-danger'> ".$row['result']." </th> <th class='text-center'></th>";
+												# echo per imprimir els resultats a la taula aquest es per quant esta DESActivada
+												echo "<tr><th class =text-center> $row[local] VS $row[visitant] </th><th class=text-danger> $row[result]</th>";
 											}
 										}
+										mysqli_close($connexio);
 										?>
 									</tbody>
 								</table>
-								<p class="text-white-50 mb-3">Si vos apostar escull una opcio.</p>
-								<form class="from-control" action="apostes.php" method="post">
+								<!--<p class="text-white-50 mb-3">Si vos apostar escull una opcio.</p>-->
+								<!--<form class="from-control" action="apostes.php" method="post">
 						            <div class="form-outline form-white mb-4">
                                         <select class="form-control" name="partitApostar" for="partitApostar">
-                                            <optgroup class="text-center" label="Partits">
-                                                <?php 
-                                                    $query = "SELECT p.Id_partit, e.nom as local, e1.nom as visitant, CASE WHEN res_Local IS NULL and res_Visitant IS NULL THEN 'Activada' WHEN res_Local IS NOT NULL and res_Visitant IS NOT NULL THEN 'Desactivada' END AS result from equip e INNER JOIN partit p on e.id_equip = p.id_equiplocal INNER JOIN equip e1 on e1.id_equip = p.id_equipVisitant";
-                                                    $result = mysqli_query($connexio,$query);
-                                                    while($row = mysqli_fetch_assoc($result))
-                                                    {
-                                                        if($row['result'] == 'Activada')
-                                                        {
-															echo "<option class='text-center'>".$row['']." vs ".$row['evisitant']."</option>";
-														}	
-                                                     }
-                                                    //echo "<option value='equip'>Escull una opcio</option>";
-                                                ?>
+                                            <optgroup class="text-center">
+                                                
+													
+													
+												
                                             </optgroup>
                                         </select>
                                     </div>
                                     <button class="btn btn-outline-warning btn-sm px-4 mb-5" type="submit">Apostar</button>
-                                </form>
+                                </form>-->
 							</div>
                         </div>
                     </div>
